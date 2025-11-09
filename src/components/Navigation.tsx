@@ -53,7 +53,7 @@ export const Navigation = () => {
               ease: "linear",
             }}
           />
-          <span className="text-2xl font-bold">Afiyet 2.0</span>
+          <span className="text-2xl font-bold">Afiyet</span>
         </motion.div>
 
         <div className="hidden md:flex items-center gap-8">

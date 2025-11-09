@@ -93,7 +93,7 @@ export const Hero = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              Turn first-time visitors into loyal customers. The all-in-one loyalty platform trusted by 1,000+ restaurants to boost retention and drive repeat business.
+              Turn first-time visitors into loyal customers. The all-in-one loyalty platform to boost retention and drive repeat business.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">

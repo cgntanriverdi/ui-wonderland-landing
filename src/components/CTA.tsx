@@ -71,7 +71,7 @@ export const CTA = () => {
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Join 1,000+ restaurants driving 35% more revenue with smart loyalty. Start your free 30-day trial today.
+              Drive 35% more revenue with smart loyalty. Start your free 30-day trial today.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

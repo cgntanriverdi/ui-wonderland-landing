@@ -6,7 +6,7 @@ export const Footer = () => {
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]" />
-              <span className="text-2xl font-bold">Afiyet 2.0</span>
+              <span className="text-2xl font-bold">Afiyet</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
               Favori restoranlarınızdan puan kazanın, ödüller biriktirin. 
@@ -46,7 +46,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-border text-center text-muted-foreground">
-          <p>&copy; 2024 Afiyet 2.0. Tüm hakları saklıdır.</p>
+          <p>&copy; 2024 Afiyet. Tüm hakları saklıdır.</p>
         </div>
       </div>
     </footer>
