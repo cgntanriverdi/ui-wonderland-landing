@@ -2,8 +2,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Zap, Target, Award } from "lucide-react";
 import gamificationImg from "@/assets/gamification.png";
+import { motion } from "framer-motion";
+import { fadeInUp, slideInLeft, slideInRight, staggerContainer, zoomIn } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Gamification = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+
   const levels = [
     { name: "Bronze", color: "bg-amber-700", users: "0-999 puan" },
     { name: "Silver", color: "bg-gray-400", users: "1,000-4,999 puan" },
@@ -51,9 +56,14 @@ export const Gamification = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-background via-muted/30 to-background" id="features">
+    <section className="py-32 bg-gradient-to-b from-background via-muted/30 to-background" id="features" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20 animate-fade-in">
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
+        >
           <h2 className="section-title mb-6">
             <span className="gradient-text">Oyunlaştırma</span> ile
             <span className="block mt-2">Her Ziyaret Kazandırır</span>
@@ -61,68 +71,103 @@ export const Gamification = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Seviye atlayın, ödüller kazanın, deneyiminizi maksimize edin
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="animate-slide-right">
-            <img 
-              src={gamificationImg} 
-              alt="Gamification System" 
+          <motion.div
+            variants={slideInLeft}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+          >
+            <motion.img
+              src={gamificationImg}
+              alt="Gamification System"
               className="w-full h-auto rounded-3xl shadow-2xl"
+              whileHover={{ scale: 1.02, rotate: -1 }}
+              transition={{ duration: 0.4 }}
             />
-          </div>
+          </motion.div>
 
-          <div className="space-y-6 animate-slide-left">
+          <motion.div
+            className="space-y-6"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isVisible ? "visible" : "hidden"}
+          >
             {features.map((feature, index) => (
-              <Card 
+              <motion.div
                 key={index}
-                className="p-6 hover-lift glass-effect"
-                style={{ animationDelay: `${index * 100}ms` }}
+                variants={fadeInUp}
+                whileHover={{ x: 10, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] flex items-center justify-center">
-                      <feature.icon className="w-6 h-6 text-white" />
+                <Card className="p-6 glass-effect">
+                  <div className="flex gap-4">
+                    <div className="flex-shrink-0">
+                      <motion.div
+                        className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] flex items-center justify-center"
+                        whileHover={{ rotate: 360, scale: 1.2 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <feature.icon className="w-6 h-6 text-white" />
+                      </motion.div>
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold mb-3">{feature.title}</h4>
+                      <ul className="space-y-2">
+                        {feature.items.map((item, i) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <span className="text-accent mt-1">•</span>
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-lg font-bold mb-3">{feature.title}</h4>
-                    <ul className="space-y-2">
-                      {feature.items.map((item, i) => (
-                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-accent mt-1">•</span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </Card>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
-        <div className="text-center mb-12">
+        <motion.div
+          className="text-center mb-12"
+          initial={{ opacity: 0 }}
+          animate={isVisible ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
           <h3 className="text-3xl font-bold mb-8">Level Sistemi</h3>
-        </div>
-        
-        <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        </motion.div>
+
+        <motion.div
+          className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
           {levels.map((level, index) => (
-            <Card 
+            <motion.div
               key={index}
-              className="p-8 text-center hover-lift glass-effect"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={zoomIn}
+              whileHover={{ y: -10, scale: 1.05 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className={`w-20 h-20 rounded-full ${level.color} mx-auto mb-4 flex items-center justify-center`}>
-                <Award className="w-10 h-10 text-white" />
-              </div>
-              <h4 className="text-2xl font-bold mb-2">{level.name}</h4>
-              <Badge variant="secondary" className="text-xs">
-                {level.users}
-              </Badge>
-            </Card>
+              <Card className="p-8 text-center glass-effect h-full">
+                <motion.div
+                  className={`w-20 h-20 rounded-full ${level.color} mx-auto mb-4 flex items-center justify-center`}
+                  whileHover={{ rotate: 360, scale: 1.1 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <Award className="w-10 h-10 text-white" />
+                </motion.div>
+                <h4 className="text-2xl font-bold mb-2">{level.name}</h4>
+                <Badge variant="secondary" className="text-xs">
+                  {level.users}
+                </Badge>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
