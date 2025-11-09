@@ -14,38 +14,38 @@ export const Gamification = () => {
   const features = [
     {
       icon: Star,
-      title: "Restoran Bazlı Puanlar",
+      title: "Restoran Puanları",
       items: [
-        "Burger King'de: 100 puan = Ücretsiz patates",
-        "Mahalle pidecisinde: 5 pide = 1 ücretsiz",
-        "Starbucks'ta: 10 kahve = 1 bedava"
+        "Her ziyarette otomatik puan kazanın",
+        "Restorana özel ödüller biriktirin",
+        "Ücretsiz yemek ve indirimler kazanın"
       ]
     },
     {
       icon: Zap,
-      title: "Streak Bonusu",
+      title: "Süreklilik Bonusu",
       items: [
-        "Her gün farklı restoran dene = ekstra puan",
-        "7 gün üst üste bonus kazanın",
-        "30 günlük streak = özel ödüller"
+        "Düzenli ziyaretlerle ekstra puan",
+        "Haftalık kazanç bonusları",
+        "Özel sadakat ödülleri"
       ]
     },
     {
       icon: Target,
-      title: "Keşif Ödülü",
+      title: "Keşif Avantajları",
       items: [
-        "Yeni restoran = 2x puan",
-        "İlk 3 ziyaret bonus",
-        "Arkadaş davet et = puan kazan"
+        "Yeni restoranları deneyin, 2x puan kazanın",
+        "İlk ziyaretlerde özel bonuslar",
+        "Arkadaş davet bonusu"
       ]
     },
     {
       icon: Award,
-      title: "Haftalık Görevler",
+      title: "Görev Sistemi",
       items: [
-        '"Bu hafta 3 farklı mutfak dene"',
-        "Topluluk etkinliklerine katıl",
-        "Özel görevler tamamla"
+        "Haftalık görevleri tamamlayın",
+        "Özel etkinliklere katılın",
+        "Ekstra ödüller kazanın"
       ]
     }
   ];
@@ -56,10 +56,10 @@ export const Gamification = () => {
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="section-title mb-6">
             <span className="gradient-text">Oyunlaştırma</span> ile
-            <span className="block mt-2">Daha Fazla Kazanın</span>
+            <span className="block mt-2">Her Ziyaret Kazandırır</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Her ziyaret bir kazanç, her deneyim bir ödül
+            Seviye atlayın, ödüller kazanın, deneyiminizi maksimize edin
           </p>
         </div>
 

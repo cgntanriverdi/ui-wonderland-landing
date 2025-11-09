@@ -31,11 +31,11 @@ export const Solution = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="section-title mb-6">
-            <span className="gradient-text">Afiyet 2.0</span> ile
-            <span className="block mt-2">Her Şey Değişiyor</span>
+            Sadakat Programları
+            <span className="block mt-2">Artık <span className="gradient-text">Çok Kolay</span></span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            "Tek uygulama, binlerce restoran sadakat programı"
+            Her restoranınızdan puan kazanın, bir arada yönetin
           </p>
         </div>
 

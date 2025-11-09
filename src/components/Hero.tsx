@@ -17,13 +17,13 @@ export const Hero = () => {
             </div>
             
             <h1 className="hero-text text-balance">
-              Her Restoran İçin
-              <span className="block gradient-text">Tek Platform</span>
+              Tüm Restoranlarınızı
+              <span className="block gradient-text">Tek Uygulamada</span>
             </h1>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              McDonald's'ın kendi uygulamasındaki puan sistemini TÜM restoranlar için 
-              tek bir platformda toplayan evrensel sadakat uygulaması.
+              Favori restoranlarınızdan puan kazanın, ödüller biriktirin ve 
+              her öğününüzü değerli hale getirin. Tek platform, sınırsız fırsat.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -31,31 +31,31 @@ export const Hero = () => {
                 size="lg" 
                 className="text-lg px-8 py-6 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] hover:opacity-90 transition-all hover:scale-105"
               >
-                Hemen İndir
+                Ücretsiz Başla
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="text-lg px-8 py-6 border-2 hover:bg-accent hover:text-accent-foreground transition-all hover:scale-105"
               >
-                Daha Fazla Bilgi
+                Demo İzle
               </Button>
             </div>
             
             <div className="flex items-center gap-8 pt-8">
               <div>
-                <div className="text-3xl font-bold">200K+</div>
-                <div className="text-sm text-muted-foreground">Restoran</div>
+                <div className="text-3xl font-bold">1000+</div>
+                <div className="text-sm text-muted-foreground">Partner Restoran</div>
               </div>
               <div className="h-12 w-px bg-border" />
               <div>
-                <div className="text-3xl font-bold">5M+</div>
-                <div className="text-sm text-muted-foreground">Kullanıcı</div>
+                <div className="text-3xl font-bold">50K+</div>
+                <div className="text-sm text-muted-foreground">Aktif Kullanıcı</div>
               </div>
               <div className="h-12 w-px bg-border" />
               <div>
-                <div className="text-3xl font-bold">93.8%</div>
-                <div className="text-sm text-muted-foreground">Mobil</div>
+                <div className="text-3xl font-bold">₺2M+</div>
+                <div className="text-sm text-muted-foreground">Tasarruf Sağlandı</div>
               </div>
             </div>
           </div>

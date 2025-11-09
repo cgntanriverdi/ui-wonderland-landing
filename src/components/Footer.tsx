@@ -9,8 +9,8 @@ export const Footer = () => {
               <span className="text-2xl font-bold">Afiyet 2.0</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Türkiye'nin ilk evrensel dijital sadakat platformu. 
-              Tek uygulama, binlerce restoran, sonsuz ödül.
+              Favori restoranlarınızdan puan kazanın, ödüller biriktirin. 
+              Tek platform ile tüm sadakat programlarınızı yönetin.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-colors">
@@ -28,9 +28,9 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Ürün</h4>
             <ul className="space-y-3">
+              <li><a href="#benefits" className="text-muted-foreground hover:text-foreground transition-colors">Avantajlar</a></li>
               <li><a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors">Nasıl Çalışır</a></li>
               <li><a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">Özellikler</a></li>
-              <li><a href="#download" className="text-muted-foreground hover:text-foreground transition-colors">İndir</a></li>
             </ul>
           </div>
 
