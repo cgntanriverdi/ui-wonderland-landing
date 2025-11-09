@@ -1,7 +1,12 @@
 import { Card } from "@/components/ui/card";
 import { Check, Shield, Sparkles, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer, cardHover } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const Benefits = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+
   const benefits = [
     {
       icon: Zap,
@@ -30,32 +35,48 @@ export const Benefits = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-background to-muted/30" id="benefits">
+    <section className="py-32 bg-gradient-to-b from-background to-muted/30" id="benefits" ref={ref}>
       <div className="container mx-auto px-6">
-        <div className="text-center mb-20 animate-fade-in">
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
+          animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
+        >
           <h2 className="section-title mb-6">
             Neden <span className="gradient-text">Afiyet 2.0</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Restoran sadakat programlarını yeniden tanımlıyoruz
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
           {benefits.map((benefit, index) => (
-            <Card 
+            <motion.div
               key={index}
-              className="p-8 text-center hover-lift glass-effect"
-              style={{ animationDelay: `${index * 100}ms` }}
+              variants={fadeInUp}
+              whileHover={cardHover}
             >
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} mx-auto mb-6 flex items-center justify-center`}>
-                <benefit.icon className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
-              <p className="text-muted-foreground">{benefit.description}</p>
-            </Card>
+              <Card className="p-8 text-center glass-effect h-full">
+                <motion.div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} mx-auto mb-6 flex items-center justify-center`}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <p className="text-muted-foreground">{benefit.description}</p>
+              </Card>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
