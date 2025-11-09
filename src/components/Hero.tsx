@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import heroPhone from "@/assets/hero-phone.png";
 import { motion } from "framer-motion";
 import { easing } from "@/lib/animations";
@@ -56,55 +55,6 @@ export const Hero = () => {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
               İlk kez gelen ziyaretçileri sadık müşterilere dönüştürün. Müşteri sadakatini artırmak ve tekrar iş yapmayı sağlamak için her şey bir arada platform.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <motion.div
-                whileHover={{ scale: 1.08, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] hover:shadow-2xl transition-all w-full sm:w-auto"
-                >
-                  Ücretsiz Deneyin
-                </Button>
-              </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.08, y: -4 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 border-2 hover:bg-accent hover:text-accent-foreground transition-all w-full sm:w-auto"
-                >
-                  Demo Ayarlayın
-                </Button>
-              </motion.div>
-            </div>
-
-            <div className="flex items-center gap-8 pt-8">
-              <div>
-                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
-                  %35
-                </div>
-                <div className="text-sm text-muted-foreground">Ortalama Gelir Artışı</div>
-              </div>
-              <div className="h-12 w-px bg-border" />
-              <div>
-                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
-                  2.5x
-                </div>
-                <div className="text-sm text-muted-foreground">Müşteri Yaşam Boyu Değeri</div>
-              </div>
-              <div className="h-12 w-px bg-border" />
-              <div>
-                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
-                  24s
-                </div>
-                <div className="text-sm text-muted-foreground">Kurulum Süresi</div>
-              </div>
-            </div>
           </motion.div>
 
           <motion.div
