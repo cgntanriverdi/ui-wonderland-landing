@@ -7,67 +7,53 @@ export const Benefits = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "Launch in 24 Hours",
-      description: "No complicated setup or training required. Go live with a fully branded loyalty program in one day",
+      title: "24 Saatte Başlatın",
+      description: "Karmaşık kurulum veya eğitim gerektirmez. Tam markalı sadakat programınızla bir günde yayına alın",
       color: "from-yellow-500 to-orange-500"
     },
     {
       icon: Sparkles,
-      title: "Increase Repeat Visits",
-      description: "Data shows 35% more frequent visits from loyalty members. Turn occasional diners into regulars",
+      title: "Tekrar Ziyaretleri Artırın",
+      description: "Veriler, sadakat üyelerinin %35 daha sık ziyaret ettiğini gösteriyor. Ara sıra gelen müşterileri düzenli müşterilere dönüştürün",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Unified Dashboard",
-      description: "Track all customer behavior, rewards redemption, and ROI in one powerful analytics dashboard",
+      title: "Birleşik Kontrol Paneli",
+      description: "Tüm müşteri davranışlarını, ödül kullanımlarını ve yatırım getirisini tek bir güçlü analiz panosunda takip edin",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Enterprise Security",
-      description: "Bank-level encryption and GDPR compliance. Your customer data is protected and fully owned by you",
+      title: "Kurumsal Güvenlik",
+      description: "Banka düzeyinde şifreleme ve GDPR uyumluluğu. Müşteri verileriniz korunur ve tamamen size aittir",
       color: "from-green-500 to-emerald-500"
     }
   ];
 
   return (
     <section className="relative py-32 overflow-hidden" id="benefits">
-      {/* Animated background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 via-red-50/30 to-yellow-50/50 animate-gradient"
-           style={{ backgroundSize: '200% 200%' }} />
+      {/* Static background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 via-red-50/30 to-yellow-50/50" />
 
-      {/* Floating gradient orbs */}
-      <motion.div
+      {/* Static gradient orb */}
+      <div
         className="absolute top-20 right-20 w-[500px] h-[500px] rounded-full"
         style={{
           background: 'radial-gradient(circle, hsl(14 88% 55% / 0.15), transparent 70%)',
           filter: 'blur(60px)',
-        }}
-        animate={{
-          x: [0, -100, 0],
-          y: [0, 100, 0],
-          scale: [1, 1.2, 1],
-        }}
-        transition={{
-          duration: 18,
-          repeat: Infinity,
-          ease: "easeInOut",
         }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            Why <motion.span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] animate-gradient"
-              style={{ backgroundSize: '200% 200%' }}
-            >
-              Leading Restaurants
-            </motion.span> Choose Us
+            Neden <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
+              Lider Restoranlar
+            </span> Bizi Tercih Ediyor
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            The complete loyalty solution that drives measurable results from day one
+            İlk günden itibaren ölçülebilir sonuçlar sağlayan eksiksiz sadakat çözümü
           </p>
         </div>
 
@@ -86,46 +72,23 @@ export const Benefits = () => {
               }}
               style={{ perspective: 1000 }}
             >
-              <motion.div
-                animate={{
-                  y: [0, -10, 0],
-                  rotateY: [0, 3, 0],
-                  rotateX: [0, 2, 0],
-                }}
-                transition={{
-                  duration: 6 + index,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.5,
-                }}
-                style={{ transformStyle: 'preserve-3d' }}
-              >
-                <Card className="p-8 text-center glass-effect h-full relative overflow-hidden">
-                  {/* Animated gradient overlay */}
-                  <motion.div
-                    className="absolute inset-0 opacity-0 hover:opacity-10 transition-opacity"
-                    style={{
-                      background: `linear-gradient(135deg, ${benefit.color.replace('from-', 'hsl(var(--')}, ${benefit.color.replace('to-', 'hsl(var(--')})`,
-                    }}
-                  />
-                  <motion.div
-                    className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} mx-auto mb-6 flex items-center justify-center relative z-10`}
-                    animate={{
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1],
-                    }}
-                    transition={{
-                      rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                      scale: { duration: 3, repeat: Infinity, ease: "easeInOut" },
-                    }}
-                    whileHover={{ scale: 1.2, rotate: 180 }}
-                  >
-                    <benefit.icon className="w-8 h-8 text-white" />
-                  </motion.div>
-                  <h3 className="text-xl font-bold mb-3 relative z-10">{benefit.title}</h3>
-                  <p className="text-muted-foreground relative z-10">{benefit.description}</p>
-                </Card>
-              </motion.div>
+              <Card className="p-8 text-center glass-effect h-full relative overflow-hidden">
+                {/* Static gradient overlay */}
+                <div
+                  className="absolute inset-0 opacity-0 hover:opacity-10 transition-opacity"
+                  style={{
+                    background: `linear-gradient(135deg, ${benefit.color.replace('from-', 'hsl(var(--')}, ${benefit.color.replace('to-', 'hsl(var(--')})`,
+                  }}
+                />
+                <motion.div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} mx-auto mb-6 flex items-center justify-center relative z-10`}
+                  whileHover={{ scale: 1.2, rotate: 180 }}
+                >
+                  <benefit.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold mb-3 relative z-10">{benefit.title}</h3>
+                <p className="text-muted-foreground relative z-10">{benefit.description}</p>
+              </Card>
             </motion.div>
           ))}
         </div>

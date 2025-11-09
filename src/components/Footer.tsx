@@ -9,7 +9,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-muted-foreground max-w-md">
-            The all-in-one loyalty platform to boost retention and drive repeat business.
+            Müşteri sadakatini artırmak ve tekrar iş yapmayı sağlamak için her şey bir arada platform.
           </p>
 
           <div className="flex gap-4">

@@ -8,64 +8,50 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Customize Your Program",
-      description: "Design your loyalty tiers, rewards, and branding in minutes with our intuitive platform"
+      title: "Programınızı Özelleştirin",
+      description: "Sezgisel platformumuzla sadakat seviyelerinizi, ödüllerinizi ve markanızı dakikalar içinde tasarlayın"
     },
     {
       icon: QrCode,
-      title: "Seamless Integration",
-      description: "Integrate with your existing POS system or use our QR code solution - no hardware required"
+      title: "Sorunsuz Entegrasyon",
+      description: "Mevcut POS sisteminizle entegre olun veya QR kod çözümümüzü kullanın - donanım gerekmez"
     },
     {
       icon: Trophy,
-      title: "Track Real-Time Data",
-      description: "Monitor customer engagement, redemption rates, and revenue impact through live analytics"
+      title: "Gerçek Zamanlı Veri Takibi",
+      description: "Canlı analitik ile müşteri etkileşimini, ödül kullanım oranlarını ve gelir etkisini izleyin"
     },
     {
       icon: Gift,
-      title: "Drive Growth",
-      description: "Watch retention rates climb as customers return more frequently for rewards and exclusive offers"
+      title: "Büyümeyi Hızlandırın",
+      description: "Müşteriler ödüller ve özel teklifler için daha sık döndükçe elde tutma oranlarının yükselişini izleyin"
     }
   ];
 
   return (
     <section className="relative py-32 overflow-hidden" id="how-it-works">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-yellow-50/50 via-orange-50/30 to-red-50/50 animate-gradient"
-           style={{ backgroundSize: '200% 200%' }} />
+      {/* Static gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-yellow-50/50 via-orange-50/30 to-red-50/50" />
 
-      {/* Floating gradient orb */}
-      <motion.div
+      {/* Static gradient orb */}
+      <div
         className="absolute bottom-20 left-20 w-[600px] h-[600px] rounded-full"
         style={{
           background: 'radial-gradient(circle, hsl(25 95% 53% / 0.15), transparent 70%)',
           filter: 'blur(80px)',
-        }}
-        animate={{
-          x: [0, 100, 0],
-          y: [0, -50, 0],
-          scale: [1, 1.3, 1],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "easeInOut",
         }}
       />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            From Setup to Success
-            <span className="block mt-2">in <motion.span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] animate-gradient"
-              style={{ backgroundSize: '200% 200%' }}
-            >
-              4 Simple Steps
-            </motion.span></span>
+            Kurulumdan Başarıya
+            <span className="block mt-2"><span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
+              4 Basit Adımda
+            </span></span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Launch your loyalty program and start seeing results within 24 hours
+            Sadakat programınızı başlatın ve 24 saat içinde sonuçları görmeye başlayın
           </p>
         </div>
 
@@ -75,29 +61,17 @@ export const Solution = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, 2, 0, -2, 0],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <motion.img
-                src={foodCollage}
-                alt="Restaurant Foods"
-                className="w-full h-auto rounded-3xl shadow-2xl"
-                whileHover={{ scale: 1.05, rotate: 3 }}
-                transition={{ duration: 0.4 }}
-              />
-            </motion.div>
+            <motion.img
+              src={foodCollage}
+              alt="Restaurant Foods"
+              className="w-full h-auto rounded-3xl shadow-2xl"
+              whileHover={{ scale: 1.05, rotate: 3 }}
+              transition={{ duration: 0.4 }}
+            />
           </motion.div>
 
           <div className="space-y-8">
-            <h3 className="text-4xl font-bold">How It Works</h3>
+            <h3 className="text-4xl font-bold">Nasıl Çalışır</h3>
             <div className="space-y-6">
               {steps.map((step, index) => (
                 <motion.div
@@ -111,59 +85,23 @@ export const Solution = () => {
                     transition: { duration: 0.3 }
                   }}
                 >
-                  <motion.div
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 5 + index,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                      delay: index * 0.3,
-                    }}
-                  >
-                    <Card className="p-6 glass-effect relative overflow-hidden">
-                      {/* Animated shine effect */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                        animate={{
-                          x: ['-100%', '100%'],
-                        }}
-                        transition={{
-                          duration: 3,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: index * 0.5,
-                        }}
-                      />
-                      <div className="flex gap-6 items-start relative z-10">
-                        <div className="flex-shrink-0">
-                          <motion.div
-                            className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center animate-gradient"
-                            style={{ backgroundSize: '200% 200%' }}
-                            animate={{
-                              rotate: [0, 5, 0, -5, 0],
-                              scale: [1, 1.05, 1],
-                            }}
-                            transition={{
-                              duration: 4,
-                              repeat: Infinity,
-                              ease: "easeInOut",
-                              delay: index * 0.2,
-                            }}
-                            whileHover={{ rotate: 180, scale: 1.2 }}
-                          >
-                            <step.icon className="w-8 h-8 text-white" />
-                          </motion.div>
-                        </div>
-                        <div>
-                          <div className="text-sm font-semibold text-accent mb-1">STEP {index + 1}</div>
-                          <h4 className="text-xl font-bold mb-2">{step.title}</h4>
-                          <p className="text-muted-foreground">{step.description}</p>
-                        </div>
+                  <Card className="p-6 glass-effect relative overflow-hidden">
+                    <div className="flex gap-6 items-start relative z-10">
+                      <div className="flex-shrink-0">
+                        <motion.div
+                          className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center"
+                          whileHover={{ rotate: 180, scale: 1.2 }}
+                        >
+                          <step.icon className="w-8 h-8 text-white" />
+                        </motion.div>
                       </div>
-                    </Card>
-                  </motion.div>
+                      <div>
+                        <div className="text-sm font-semibold text-accent mb-1">ADIM {index + 1}</div>
+                        <h4 className="text-xl font-bold mb-2">{step.title}</h4>
+                        <p className="text-muted-foreground">{step.description}</p>
+                      </div>
+                    </div>
+                  </Card>
                 </motion.div>
               ))}
             </div>
