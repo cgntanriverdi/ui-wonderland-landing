@@ -27,7 +27,7 @@ export const Solution = () => {
   ];
 
   return (
-    <section className="py-32 bg-background">
+    <section className="py-32 bg-background" id="how-it-works">
       <div className="container mx-auto px-6">
         <div className="text-center mb-20 animate-fade-in">
           <h2 className="section-title mb-6">

@@ -26,17 +26,14 @@ export const Navigation = () => {
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-foreground/80 hover:text-foreground transition-colors">
-            Özellikler
-          </a>
           <a href="#how-it-works" className="text-foreground/80 hover:text-foreground transition-colors">
             Nasıl Çalışır
           </a>
-          <a href="#pricing" className="text-foreground/80 hover:text-foreground transition-colors">
-            Fiyatlandırma
+          <a href="#features" className="text-foreground/80 hover:text-foreground transition-colors">
+            Özellikler
           </a>
-          <a href="#stats" className="text-foreground/80 hover:text-foreground transition-colors">
-            İstatistikler
+          <a href="#download" className="text-foreground/80 hover:text-foreground transition-colors">
+            İndir
           </a>
         </div>
 

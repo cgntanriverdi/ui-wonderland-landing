@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export const CTA = () => {
   return (
-    <section className="py-32 bg-gradient-to-b from-muted/30 to-background">
+    <section className="py-32 bg-gradient-to-b from-muted/30 to-background" id="download">
       <div className="container mx-auto px-6">
         <div className="relative rounded-3xl overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]" />
@@ -11,12 +11,12 @@ export const CTA = () => {
           
           <div className="relative z-10 py-20 px-8 md:px-16 text-center text-white">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              Dijital Sadakat Devrimine
-              <span className="block mt-2">Katılmaya Hazır mısınız?</span>
+              Ödüllerle Dolu Lezzetli
+              <span className="block mt-2">Bir Yolculuğa Başla</span>
             </h2>
             
             <p className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto animate-fade-in">
-              Hem kullanıcılar hem restoranlar için tasarlanmış, tek platformda binlerce sadakat programı
+              Binlerce restoranda puan kazan, ödüller ve ücretsiz yemekler için puanlarını kullan
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
@@ -24,7 +24,7 @@ export const CTA = () => {
                 size="lg" 
                 className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all hover:scale-105"
               >
-                Kullanıcı Olarak Başla
+                App Store'dan İndir
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
               <Button 
@@ -32,7 +32,7 @@ export const CTA = () => {
                 variant="outline"
                 className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white/10 transition-all hover:scale-105"
               >
-                Restoranım İçin Kayıt Ol
+                Google Play'den İndir
               </Button>
             </div>
           </div>
