@@ -77,28 +77,6 @@ export const Navigation = () => {
             </motion.a>
           ))}
         </div>
-
-        <motion.div
-          className="flex items-center gap-4"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: easing.apple }}
-        >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button variant="ghost" className="hidden md:inline-flex">
-              Giriş Yap
-            </Button>
-          </motion.div>
-          <motion.div
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-          >
-            <Button className="bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] hover:opacity-90 transition-opacity">
-              Başla
-            </Button>
-          </motion.div>
-        </motion.div>
       </div>
     </motion.nav>
   );
