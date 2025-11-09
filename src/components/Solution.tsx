@@ -11,23 +11,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Harita Görür",
-      description: "Yakındaki tüm partner restoranları keşfedin"
+      title: "Customize Your Program",
+      description: "Design your loyalty tiers, rewards, and branding in minutes with our intuitive platform"
     },
     {
       icon: QrCode,
-      title: "QR Okuttur",
-      description: "Yemek sonrası hızlıca puan kazanın"
+      title: "Seamless Integration",
+      description: "Integrate with your existing POS system or use our QR code solution - no hardware required"
     },
     {
       icon: Trophy,
-      title: "Puan Biriktirir",
-      description: "Her restorana özel puanlarınızı toplayın"
+      title: "Track Real-Time Data",
+      description: "Monitor customer engagement, redemption rates, and revenue impact through live analytics"
     },
     {
       icon: Gift,
-      title: "Ödül Kazanır",
-      description: "Ücretsiz yemek ve indirimler kazanın"
+      title: "Drive Growth",
+      description: "Watch retention rates climb as customers return more frequently for rewards and exclusive offers"
     }
   ];
 
@@ -41,11 +41,11 @@ export const Solution = () => {
           transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
         >
           <h2 className="section-title mb-6">
-            Sadakat Programları
-            <span className="block mt-2">Artık <span className="gradient-text">Çok Kolay</span></span>
+            From Setup to Success
+            <span className="block mt-2">in <span className="gradient-text">4 Simple Steps</span></span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Her restoranınızdan puan kazanın, bir arada yönetin
+            Launch your loyalty program and start seeing results within 24 hours
           </p>
         </motion.div>
 
@@ -70,7 +70,7 @@ export const Solution = () => {
             initial="hidden"
             animate={isVisible ? "visible" : "hidden"}
           >
-            <h3 className="text-4xl font-bold">Nasıl Çalışır?</h3>
+            <h3 className="text-4xl font-bold">How It Works</h3>
             <motion.div
               className="space-y-6"
               variants={staggerContainer}
@@ -96,7 +96,7 @@ export const Solution = () => {
                         </motion.div>
                       </div>
                       <div>
-                        <div className="text-sm font-semibold text-accent mb-1">ADIM {index + 1}</div>
+                        <div className="text-sm font-semibold text-accent mb-1">STEP {index + 1}</div>
                         <h4 className="text-xl font-bold mb-2">{step.title}</h4>
                         <p className="text-muted-foreground">{step.description}</p>
                       </div>

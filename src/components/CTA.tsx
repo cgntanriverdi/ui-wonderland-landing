@@ -37,14 +37,14 @@ export const CTA = () => {
               animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.8, ease: easing.apple }}
             >
-              Ödüllerle Dolu Lezzetli
+              Ready to Transform
               <motion.span
                 className="block mt-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: easing.apple }}
               >
-                Bir Yolculuğa Başla
+                Your Customer Retention?
               </motion.span>
             </motion.h2>
 
@@ -54,7 +54,7 @@ export const CTA = () => {
               animate={isVisible ? { opacity: 0.9, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.8, delay: 0.3, ease: easing.apple }}
             >
-              Binlerce restoranda puan kazan, ödüller ve ücretsiz yemekler için puanlarını kullan
+              Join 1,000+ restaurants driving 35% more revenue with smart loyalty. Start your free 30-day trial today.
             </motion.p>
 
             <motion.div
@@ -72,7 +72,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto"
                 >
-                  App Store'dan İndir
+                  Start Free Trial
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
@@ -91,7 +91,7 @@ export const CTA = () => {
                   variant="outline"
                   className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white/10 transition-all w-full sm:w-auto"
                 >
-                  Google Play'den İndir
+                  Schedule a Call
                 </Button>
               </motion.div>
             </motion.div>

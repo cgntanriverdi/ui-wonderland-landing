@@ -10,26 +10,26 @@ export const Benefits = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "Hızlı ve Kolay",
-      description: "Tek QR kod okutması ile anında puan kazanın",
+      title: "Launch in 24 Hours",
+      description: "No complicated setup or training required. Go live with a fully branded loyalty program in one day",
       color: "from-yellow-500 to-orange-500"
     },
     {
       icon: Sparkles,
-      title: "Her Ziyaret Değerli",
-      description: "Her öğün, her kahve, her atıştırmalık puan kazandırır",
+      title: "Increase Repeat Visits",
+      description: "Data shows 35% more frequent visits from loyalty members. Turn occasional diners into regulars",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Tek Platform",
-      description: "Tüm sadakat puanlarınız bir arada, takip etmesi kolay",
+      title: "Unified Dashboard",
+      description: "Track all customer behavior, rewards redemption, and ROI in one powerful analytics dashboard",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Güvenli ve Özel",
-      description: "Verileriniz şifreli ve güvende, sadece sizin kontrolünüzde",
+      title: "Enterprise Security",
+      description: "Bank-level encryption and GDPR compliance. Your customer data is protected and fully owned by you",
       color: "from-green-500 to-emerald-500"
     }
   ];
@@ -44,10 +44,10 @@ export const Benefits = () => {
           transition={{ duration: 0.8, ease: [0.4, 0.0, 0.2, 1] }}
         >
           <h2 className="section-title mb-6">
-            Neden <span className="gradient-text">Afiyet 2.0</span>?
+            Why <span className="gradient-text">Leading Restaurants</span> Choose Us
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Restoran sadakat programlarını yeniden tanımlıyoruz
+            The complete loyalty solution that drives measurable results from day one
           </p>
         </motion.div>
 

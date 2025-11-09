@@ -34,19 +34,19 @@ export const Hero = () => {
           >
             <motion.div className="inline-block" variants={fadeInUp}>
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Dijital Sadakat Devrimi
+                Enterprise Loyalty Platform
               </span>
             </motion.div>
 
             <motion.h1 className="hero-text text-balance" variants={fadeInUp}>
-              Tüm Restoranlarınızı
+              Increase Revenue by
               <motion.span
                 className="block gradient-text"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4, ease: easing.apple }}
               >
-                Tek Uygulamada
+                35% with Smart Loyalty
               </motion.span>
             </motion.h1>
 
@@ -54,8 +54,7 @@ export const Hero = () => {
               className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance"
               variants={fadeInUp}
             >
-              Favori restoranlarınızdan puan kazanın, ödüller biriktirin ve
-              her öğününüzü değerli hale getirin. Tek platform, sınırsız fırsat.
+              Turn first-time visitors into loyal customers. The all-in-one loyalty platform trusted by 1,000+ restaurants to boost retention and drive repeat business.
             </motion.p>
 
             <motion.div
@@ -71,7 +70,7 @@ export const Hero = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] hover:opacity-90 transition-all w-full sm:w-auto"
                 >
-                  Ücretsiz Başla
+                  Start Free Trial
                 </Button>
               </motion.div>
               <motion.div
@@ -84,7 +83,7 @@ export const Hero = () => {
                   variant="outline"
                   className="text-lg px-8 py-6 border-2 hover:bg-accent hover:text-accent-foreground transition-all w-full sm:w-auto"
                 >
-                  Demo İzle
+                  Book a Demo
                 </Button>
               </motion.div>
             </motion.div>
@@ -102,9 +101,9 @@ export const Hero = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.8, ease: easing.apple }}
                 >
-                  1000+
+                  35%
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Partner Restoran</div>
+                <div className="text-sm text-muted-foreground">Average Revenue Lift</div>
               </motion.div>
               <div className="h-12 w-px bg-border" />
               <motion.div variants={fadeInUp}>
@@ -114,9 +113,9 @@ export const Hero = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 0.9, ease: easing.apple }}
                 >
-                  50K+
+                  2.5x
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Aktif Kullanıcı</div>
+                <div className="text-sm text-muted-foreground">Customer Lifetime Value</div>
               </motion.div>
               <div className="h-12 w-px bg-border" />
               <motion.div variants={fadeInUp}>
@@ -126,9 +125,9 @@ export const Hero = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6, delay: 1.0, ease: easing.apple }}
                 >
-                  ₺2M+
+                  24h
                 </motion.div>
-                <div className="text-sm text-muted-foreground">Tasarruf Sağlandı</div>
+                <div className="text-sm text-muted-foreground">Setup Time</div>
               </motion.div>
             </motion.div>
           </motion.div>
