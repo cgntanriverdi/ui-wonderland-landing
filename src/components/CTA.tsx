@@ -1,31 +1,43 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { fadeInUp, zoomIn, easing } from "@/lib/animations";
-import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 
 export const CTA = () => {
-  const { ref, isVisible } = useScrollAnimation(0.1);
-
   return (
-    <section className="py-32 bg-gradient-to-b from-muted/30 to-background" id="download" ref={ref}>
-      <div className="container mx-auto px-6">
+    <section className="relative py-32 overflow-hidden" id="download">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-red-50/50 via-orange-50/30 to-yellow-50/50 animate-gradient"
+           style={{ backgroundSize: '200% 200%' }} />
+
+      {/* Floating orbs */}
+      <motion.div
+        className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, hsl(14 88% 55% / 0.2), transparent 70%)',
+          filter: 'blur(60px)',
+        }}
+        animate={{
+          x: [0, 50, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           className="relative rounded-3xl overflow-hidden"
-          variants={zoomIn}
-          initial="hidden"
-          animate={isVisible ? "visible" : "hidden"}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          whileHover={{ scale: 1.02 }}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
+            className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] animate-gradient"
             style={{ backgroundSize: "200% 200%" }}
           />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJNLS4wMyAzMGgxMHYxMGgtMTB6TTIwIDIwaDEwdjEwaC0xMHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2EpIi8+PC9zdmc+')] opacity-50" />
@@ -34,67 +46,70 @@ export const CTA = () => {
             <motion.h2
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 40 }}
-              animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.8, ease: easing.apple }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
             >
-              Ödüllerle Dolu Lezzetli
+              <motion.span
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-block"
+              >
+                Ready to Transform
+              </motion.span>
               <motion.span
                 className="block mt-2"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: easing.apple }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
               >
-                Bir Yolculuğa Başla
+                Your Customer Retention?
               </motion.span>
             </motion.h2>
 
             <motion.p
               className="text-xl md:text-2xl mb-10 opacity-90 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 30 }}
-              animate={isVisible ? { opacity: 0.9, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: easing.apple }}
+              animate={{ opacity: 0.9, y: 0 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              Binlerce restoranda puan kazan, ödüller ve ücretsiz yemekler için puanlarını kullan
+              Join 1,000+ restaurants driving 35% more revenue with smart loyalty. Start your free 30-day trial today.
             </motion.p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: easing.apple }}
-            >
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto"
+                  className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  App Store'dan İndir
+                  Start Free Trial
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
+                    className="inline-block"
                   >
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </motion.div>
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05, y: -3 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2 }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               >
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white/10 transition-all w-full sm:w-auto"
                 >
-                  Google Play'den İndir
+                  Schedule a Call
                 </Button>
               </motion.div>
-            </motion.div>
+            </div>
           </div>
         </motion.div>
       </div>

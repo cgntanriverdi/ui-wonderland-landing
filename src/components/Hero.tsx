@@ -1,152 +1,190 @@
 import { Button } from "@/components/ui/button";
 import heroPhone from "@/assets/hero-phone.png";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeInScale, easing } from "@/lib/animations";
-import { useParallax } from "@/hooks/use-scroll-animation";
+import { motion } from "framer-motion";
+import { easing } from "@/lib/animations";
 
 export const Hero = () => {
-  const offsetY = useParallax(0.3);
-  const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-background via-background to-muted/30">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 animate-gradient"
+           style={{ backgroundSize: '200% 200%' }} />
+
+      {/* Continuous floating gradient orbs */}
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,hsl(14_88%_55%_/_0.1),transparent_50%)]"
-        style={{ y: offsetY }}
+        className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full animate-morph"
+        style={{
+          background: 'radial-gradient(circle, hsl(14 88% 55% / 0.2), transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+        animate={{
+          x: [0, 100, 0],
+          y: [0, 50, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{
+          duration: 15,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
       <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_70%_50%,hsl(25_95%_53%_/_0.1),transparent_50%)]"
-        style={{ y: offsetY * -1 }}
+        className="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full animate-morph"
+        style={{
+          background: 'radial-gradient(circle, hsl(25 95% 53% / 0.2), transparent 70%)',
+          filter: 'blur(80px)',
+        }}
+        animate={{
+          x: [0, -100, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
+      <motion.div
+        className="absolute top-1/2 left-1/2 w-[700px] h-[700px] rounded-full animate-morph"
+        style={{
+          background: 'radial-gradient(circle, hsl(35 90% 60% / 0.15), transparent 70%)',
+          filter: 'blur(100px)',
+        }}
+        animate={{
+          x: [-200, 200, -200],
+          y: [-100, 100, -100],
+          scale: [1, 1.3, 1],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
 
-      <motion.div
-        className="container mx-auto px-6 py-32 relative z-10"
-        style={{ scale, opacity }}
-      >
+      <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             className="space-y-8"
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: easing.apple }}
           >
-            <motion.div className="inline-block" variants={fadeInUp}>
+            <motion.div
+              className="inline-block"
+              animate={{ y: [0, -5, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Dijital Sadakat Devrimi
+                Enterprise Loyalty Platform
               </span>
             </motion.div>
 
-            <motion.h1 className="hero-text text-balance" variants={fadeInUp}>
-              Tüm Restoranlarınızı
+            <h1 className="hero-text text-balance">
+              Increase Revenue by
               <motion.span
-                className="block gradient-text"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: easing.apple }}
+                className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] animate-gradient"
+                style={{ backgroundSize: '200% 200%' }}
               >
-                Tek Uygulamada
+                35% with Smart Loyalty
               </motion.span>
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance"
-              variants={fadeInUp}
-            >
-              Favori restoranlarınızdan puan kazanın, ödüller biriktirin ve
-              her öğününüzü değerli hale getirin. Tek platform, sınırsız fırsat.
-            </motion.p>
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
+              Turn first-time visitors into loyal customers. The all-in-one loyalty platform trusted by 1,000+ restaurants to boost retention and drive repeat business.
+            </p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4 pt-4"
-              variants={fadeInUp}
-            >
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: easing.easeOut }}
+                whileHover={{ scale: 1.08, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, -2, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Button
                   size="lg"
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] hover:opacity-90 transition-all w-full sm:w-auto"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] hover:shadow-2xl transition-all w-full sm:w-auto animate-gradient"
+                  style={{ backgroundSize: '200% 200%' }}
                 >
-                  Ücretsiz Başla
+                  Start Free Trial
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.2, ease: easing.easeOut }}
+                whileHover={{ scale: 1.08, y: -4 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ y: [0, -2, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               >
                 <Button
                   size="lg"
                   variant="outline"
                   className="text-lg px-8 py-6 border-2 hover:bg-accent hover:text-accent-foreground transition-all w-full sm:w-auto"
                 >
-                  Demo İzle
+                  Book a Demo
                 </Button>
               </motion.div>
-            </motion.div>
+            </div>
 
-            <motion.div
-              className="flex items-center gap-8 pt-8"
-              variants={staggerContainer}
-              initial="hidden"
-              animate="visible"
-            >
-              <motion.div variants={fadeInUp}>
-                <motion.div
-                  className="text-3xl font-bold"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.8, ease: easing.apple }}
-                >
-                  1000+
-                </motion.div>
-                <div className="text-sm text-muted-foreground">Partner Restoran</div>
+            <div className="flex items-center gap-8 pt-8">
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                  y: [0, -5, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
+                  35%
+                </div>
+                <div className="text-sm text-muted-foreground">Average Revenue Lift</div>
               </motion.div>
               <div className="h-12 w-px bg-border" />
-              <motion.div variants={fadeInUp}>
-                <motion.div
-                  className="text-3xl font-bold"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.9, ease: easing.apple }}
-                >
-                  50K+
-                </motion.div>
-                <div className="text-sm text-muted-foreground">Aktif Kullanıcı</div>
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                  y: [0, -5, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+              >
+                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
+                  2.5x
+                </div>
+                <div className="text-sm text-muted-foreground">Customer Lifetime Value</div>
               </motion.div>
               <div className="h-12 w-px bg-border" />
-              <motion.div variants={fadeInUp}>
-                <motion.div
-                  className="text-3xl font-bold"
-                  initial={{ opacity: 0, scale: 0.5 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.0, ease: easing.apple }}
-                >
-                  ₺2M+
-                </motion.div>
-                <div className="text-sm text-muted-foreground">Tasarruf Sağlandı</div>
+              <motion.div
+                animate={{
+                  scale: [1, 1.05, 1],
+                  y: [0, -5, 0],
+                }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              >
+                <div className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-[hsl(25_95%_53%)]">
+                  24h
+                </div>
+                <div className="text-sm text-muted-foreground">Setup Time</div>
               </motion.div>
-            </motion.div>
+            </div>
           </motion.div>
 
           <motion.div
             className="relative"
-            variants={fadeInScale}
-            initial="hidden"
-            animate="visible"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3, ease: easing.apple }}
           >
+            {/* Animated glow behind phone */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)] blur-3xl opacity-20"
+              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-30 animate-gradient"
+              style={{ backgroundSize: '200% 200%' }}
               animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.3, 0.2]
+                scale: [1, 1.2, 1],
+                rotate: [0, 5, 0],
               }}
               transition={{
-                duration: 4,
+                duration: 8,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
@@ -155,9 +193,9 @@ export const Hero = () => {
               src={heroPhone}
               alt="Afiyet App"
               className="relative w-full h-auto"
-              style={{ y: offsetY * -0.5 }}
               animate={{
-                y: [0, -20, 0]
+                y: [0, -20, 0],
+                rotate: [0, 2, 0, -2, 0],
               }}
               transition={{
                 duration: 6,
@@ -167,7 +205,7 @@ export const Hero = () => {
             />
           </motion.div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };
