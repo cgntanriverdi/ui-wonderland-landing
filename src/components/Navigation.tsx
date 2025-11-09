@@ -42,17 +42,7 @@ export const Navigation = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <motion.div
-            className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]"
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
+          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]" />
           <span className="text-2xl font-bold">Afiyet</span>
         </motion.div>
 
