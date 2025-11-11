@@ -6,27 +6,27 @@ export const Benefits = () => {
 
   const benefits = [
     {
-      icon: Zap,
-      title: "24 Saatte Hazır",
-      description: "Kurulum yok, eğitim yok. Markanıza özel sadakat programınız bugün başlasın, yarın kazandırsın",
+      icon: Sparkles,
+      title: "AI Asistan Memo",
+      description: '"Bugün ne yesem?" kararsızlığına son. Memo, konumuna yakın en iyi fırsatları sana özel öneriyor',
       color: "from-yellow-500 to-orange-500"
     },
     {
-      icon: Sparkles,
-      title: "Müşteriler Daha Sık Gelir",
-      description: "Sadakat programı kullanan restoranlar %35 daha fazla müşteri ziyareti görüyor. Tek seferlik müşterileriniz düzenli gelir",
+      icon: Zap,
+      title: "QR Kod ile Anında İndirim",
+      description: "McApp gibi. Kuponu seç, kasaya gel, QR göster. Anında indirim al, ekstra XP kazan",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Her Şey Bir Yerde",
-      description: "Müşteri davranışları, ödül kullanımı, gelir analizi - hepsi tek panelde. Rakamları görün, kararları verin",
+      title: "Battle Pass Sistemi",
+      description: "Her harcamanda XP kazan, level atla. Özel kostümler, yeni karakterler ve daha fazla ödül seni bekliyor",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Güvenli ve Uyumlu",
-      description: "Banka seviyesinde güvenlik, GDPR uyumluluğu. Müşteri verileri tamamen sizde, kimseyle paylaşılmaz",
+      title: "Restoranlar İçin %0 Komisyon",
+      description: "Yemeksepeti'ne %30-40 komisyon verme. Sabit aylık ücret, sınırsız müşteri. Senin platformun, senin kuralların",
       color: "from-green-500 to-emerald-500"
     }
   ];
@@ -49,11 +49,11 @@ export const Benefits = () => {
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-              Başarılı Restoranlar
-            </span> Neden Afiyet'i Seçiyor
+              Oyun Gibi Deneyim
+            </span> Gerçek Tasarruf
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Bugün başlayın, ilk haftadan sonuç görün
+            Kullanıcılar için ücretsiz, restoranlar için komisyonsuz
           </p>
         </div>
 
