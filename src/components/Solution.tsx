@@ -8,23 +8,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Programınızı Tasarlayın",
-      description: "Seviyeler, ödüller, marka - hepsini dakikalar içinde ayarlayın. Hiçbir teknik bilgi gerekmez"
+      title: "Memo'ya Sor",
+      description: '"Canım burger çekti" de, Memo konumuna yakın en iyi fırsatları göstersin'
     },
     {
       icon: QrCode,
-      title: "Hemen Başlayın",
-      description: "POS entegrasyonu veya QR kod - siz seçin. Ekstra donanım almaya gerek yok"
+      title: "Kuponu Aktif Et",
+      description: "Beğendiğin fırsata tıkla, QR kod oluştur. 5 dakika geçerli, git ve kullan"
     },
     {
       icon: Trophy,
-      title: "Canlı Takip Edin",
-      description: "Hangi müşteri ne kadar harcadı, hangi ödül popüler, gelir nasıl arttı - anlık görün"
+      title: "Kasada QR Göster",
+      description: "Restoran QR'ı tarar, indirim anında uygulanır. Ödeme yap, çık"
     },
     {
       icon: Gift,
-      title: "Büyümeyi İzleyin",
-      description: "Müşteriler daha sık gelmeye başlıyor, cirosunuz artıyor. Rakamlar konuşuyor"
+      title: "XP Kazan, Level Atla",
+      description: "Harcadığın tutar kadar XP kazanırsın. Seviye atla, yeni ödüller aç, Memo'yu süsle"
     }
   ];
 
@@ -45,12 +45,15 @@ export const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-              4 Adımda
-            </span> Başlayın, Sonuç Alın
+            Nasıl Çalışır?
+            <span className="block mt-2">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
+                4 Basit Adım
+              </span>
+            </span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Bugün başla, yarın ilk sadık müşterini kazan
+            Sor, seç, göster, kazan. Bu kadar basit
           </p>
         </div>
 

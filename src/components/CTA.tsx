@@ -35,9 +35,9 @@ export const CTA = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Müşterilerinizin
+              Dışarıda Yemek
               <span className="block mt-2">
-                Tekrar Gelmesini Sağlayın
+                Artık Oyun Gibi
               </span>
             </motion.h2>
 
@@ -47,7 +47,7 @@ export const CTA = () => {
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Sadakat programıyla cirosunuzu %35 artırın. 30 gün ücretsiz deneyin, beğenirseniz devam edin.
+              Kullanıcılar için tamamen ücretsiz. Restoranlar için %0 komisyon, sabit aylık ücret. Hemen başla.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,7 +59,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Ücretsiz Deneyin
+                  Uygulamayı İndir
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
@@ -69,10 +69,9 @@ export const CTA = () => {
               >
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="text-lg px-8 py-6 border-2 border-white text-white hover:bg-white/10 transition-all w-full sm:w-auto"
+                  className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Görüşme Ayarlayın
+                  Restoranım İçin
                 </Button>
               </motion.div>
             </div>

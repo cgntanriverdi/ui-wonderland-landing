@@ -41,19 +41,19 @@ export const Hero = () => {
           >
             <div className="inline-block">
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Kurumsal Sadakat Platformu
+                Dışarıda Yemek Artık Daha Uygun
               </span>
             </div>
 
             <h1 className="hero-text text-balance">
-              Sadakat Programınızla
+              Fırsat Yakala, Puan Kazan
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                Gelirinizi %35 Artırın
+                Seviye Atla
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              Tek seferlik müşteriyi sadık müşteriye dönüştürün. Restoranınız için özel tasarlanmış sadakat programı.
+              AI asistanın Memo sana en iyi restoranları öneriyor. QR kodla kupon kullan, her harcamanda XP kazan, level atla. Restoranlar için %0 komisyon.
             </p>
           </motion.div>
 
