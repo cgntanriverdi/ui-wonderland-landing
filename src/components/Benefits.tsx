@@ -14,7 +14,7 @@ export const Benefits = () => {
     {
       icon: Zap,
       title: "QR Kod ile Anında İndirim",
-      description: "McApp gibi. Kuponu seç, kasaya gel, QR göster. Anında indirim al, ekstra XP kazan",
+      description: "Kuponu seç, kasaya gel, QR göster. Anında indirim al, ekstra XP kazan",
       color: "from-purple-500 to-pink-500"
     },
     {
@@ -26,7 +26,7 @@ export const Benefits = () => {
     {
       icon: Shield,
       title: "Restoranlar İçin %0 Komisyon",
-      description: "Yemeksepeti'ne %30-40 komisyon verme. Sabit aylık ücret, sınırsız müşteri. Senin platformun, senin kuralların",
+      description: "Yüksek komisyonlara son. Sabit aylık ücret, sınırsız müşteri. Senin platformun, senin kuralların",
       color: "from-green-500 to-emerald-500"
     }
   ];
