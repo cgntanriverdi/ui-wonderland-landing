@@ -7,26 +7,26 @@ export const Benefits = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "Reduce Commission Costs",
-      description: "Eliminate 30-40% delivery platform fees. Fixed monthly subscription with unlimited customer transactions",
+      title: "Komisyon Maliyetini Sıfırlayın",
+      description: "%30-40 paket servis ücretlerine son verin. Sabit aylık ücret, sınırsız müşteri işlemi",
       color: "from-yellow-500 to-orange-500"
     },
     {
       icon: Sparkles,
-      title: "Increase Dine-In Revenue",
-      description: "Drive customers to your physical location with AI-powered offers. Average 35% increase in repeat visits",
+      title: "Mekanda Satışları Artırın",
+      description: "AI destekli kampanyalarla müşterileri restoranınıza çekin. Ortalama %35 daha fazla tekrar ziyaret",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Gamified Loyalty System",
-      description: "Built-in XP and level system keeps customers engaged. Battle pass mechanics proven to boost retention by 2.5x",
+      title: "Oyunlaştırılmış Sadakat Sistemi",
+      description: "XP ve seviye sistemi müşterileri bağlı tutar. Battle pass mekaniği ile 2.5 kat daha fazla sadakat",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Own Your Customer Data",
-      description: "Full control over customer insights and behavior analytics. No third-party dependencies or data sharing",
+      title: "Veri Sahipliği Sizde",
+      description: "Müşteri davranışları ve analizleri tamamen sizin kontrolünüzde. Üçüncü taraf bağımlılığı yok",
       color: "from-green-500 to-emerald-500"
     }
   ];
@@ -48,13 +48,13 @@ export const Benefits = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            A fully integrated suite of
+            Eksiksiz bir
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-              loyalty and engagement tools
+              sadakat ve etkileşim paketi
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Reduce costs, grow revenue, and build customer relationships on an AI-powered platform
+            Maliyetleri düşürün, ciroyu artırın ve AI destekli platformla müşteri ilişkilerini güçlendirin
           </p>
         </div>
 

@@ -8,23 +8,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Design Your Program",
-      description: "Customize loyalty tiers, rewards, and offers in minutes. No technical expertise required"
+      title: "Programınızı Tasarlayın",
+      description: "Sadakat seviyeleri, ödüller ve kampanyalar dakikalar içinde hazır. Teknik bilgi gerektirmez"
     },
     {
       icon: QrCode,
-      title: "Seamless Integration",
-      description: "QR-based system works with any POS. No hardware installation, no training needed"
+      title: "Sorunsuz Entegrasyon",
+      description: "QR tabanlı sistem her POS ile çalışır. Donanım kurulumu yok, eğitim gerektirmez"
     },
     {
       icon: Trophy,
-      title: "Real-Time Analytics",
-      description: "Track customer behavior, redemption rates, and revenue impact through live dashboards"
+      title: "Anlık Analiz",
+      description: "Müşteri davranışları, kampanya kullanımları ve ciro etkisini canlı panolardan takip edin"
     },
     {
       icon: Gift,
-      title: "Automated Engagement",
-      description: "AI-powered recommendations drive customers back to your location. Built-in gamification increases lifetime value"
+      title: "Otomatik Etkileşim",
+      description: "AI destekli öneriler müşterileri geri getirir. Oyunlaştırma müşteri değerini artırır"
     }
   ];
 
@@ -45,15 +45,15 @@ export const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            Launch your loyalty program
+            Sadakat programınızı
             <span className="block mt-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                in 24 hours
+                24 saatte başlatın
               </span>
             </span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Get up and running with minimal setup, no technical overhead
+            Minimum kurulum, sıfır teknik yük ile hemen başlayın
           </p>
         </div>
 
