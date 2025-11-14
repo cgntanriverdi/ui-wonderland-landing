@@ -41,19 +41,19 @@ export const Hero = () => {
           >
             <div className="inline-block">
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Restoranınız İçin Sadakat Programı
+                Müşteri Kampanyaları ve Puan Sistemi
               </span>
             </div>
 
             <h1 className="hero-text text-balance">
-              Kendi Müşteri Programınızı Kurun,
+              Müşterilerinizi Geri Getirin,
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                Komisyonları Kaldırın
+                Komisyon Ödemeyin
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              Paket servis uygulamalarına %30-40 komisyon ödemek yerine, kendi sadakat programınızı kurun. Müşterileriniz mekana gelsin, siz daha çok kazanın.
+              Paket servis uygulamalarına %30-40 komisyon vermek yerine, kendi kampanya ve puan sisteminizi kurun. Müşterileriniz mekana gelsin, siz daha çok kazanın.
             </p>
           </motion.div>
 

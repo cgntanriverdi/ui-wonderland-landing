@@ -8,23 +8,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Programınızı Oluşturun",
-      description: "Kaç puan toplanınca ne ödül verilecek? Hangi kampanyalar olacak? Hepsini dakikalar içinde kurun, kod yazmaya gerek yok"
+      title: "Kampanyalarınızı Kurun",
+      description: "Kaç puan toplanınca ne ödül verilecek? Hangi indirimler olacak? Hepsini dakikalar içinde ayarlayın, kod yazmaya gerek yok"
     },
     {
       icon: QrCode,
-      title: "QR Kodla Başlayın",
-      description: "Kasanıza, masalarınıza QR kod koyun, müşteriler okutup puan toplasın. Ekstra donanım ya da eğitim gerektirmez"
+      title: "QR Kod Koyun, Başlayın",
+      description: "Kasanıza, masalarınıza QR kod yerleştirin. Müşteriler okutup puan toplasın. Ekstra donanım gerektirmez"
     },
     {
       icon: Trophy,
-      title: "Sonuçları Takip Edin",
-      description: "Kaç müşteri kaydoldu? Hangi kampanya işe yarıyor? Ciroya etkisi ne? Hepsini canlı görebilirsiniz"
+      title: "Sonuçları Görebilirsiniz",
+      description: "Kaç müşteri topladınız? Hangi kampanya işe yarıyor? Ciroya etkisi ne? Hepsini canlı izleyin"
     },
     {
       icon: Gift,
-      title: "Müşterileri Geri Getirin",
-      description: "Uzun süredir gelmeyen müşterilere özel kampanyalar gönderin. Puan sistemi müşterileri tekrar getirir"
+      title: "Müşterileri Tekrar Getirin",
+      description: "Gelmeyen müşterilere özel kampanya gönderin. Puan sistemi onları tekrar getirir"
     }
   ];
 

@@ -9,7 +9,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-muted-foreground max-w-md">
-            Kendi müşteri sadakat programınızı kurun. Paket servis komisyonlarını kaldırın, müşterilerinizi mekana çekin.
+            Kampanya ve puan sistemi ile müşterilerinizi geri getirin. Paket servis komisyonlarını kaldırın.
           </p>
 
           <div className="flex gap-4">

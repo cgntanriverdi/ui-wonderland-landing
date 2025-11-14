@@ -47,7 +47,7 @@ export const CTA = () => {
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Kendi sadakat programınızı kurup komisyonları kaldıran yüzlerce restorana katılın. 30 günlük ücretsiz deneme ile başlayın.
+              Kampanya ve puan sistemi ile komisyonları kaldıran yüzlerce restorana katılın. 30 günlük ücretsiz deneme ile başlayın.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
