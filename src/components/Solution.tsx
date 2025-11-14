@@ -8,23 +8,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Programınızı Tasarlayın",
-      description: "Sadakat seviyeleri, ödüller ve kampanyalar dakikalar içinde hazır. Teknik bilgi gerektirmez"
+      title: "Programınızı Oluşturun",
+      description: "Kaç puan toplanınca ne ödül verilecek? Hangi kampanyalar olacak? Hepsini dakikalar içinde kurun, kod yazmaya gerek yok"
     },
     {
       icon: QrCode,
-      title: "Sorunsuz Entegrasyon",
-      description: "QR tabanlı sistem her POS ile çalışır. Donanım kurulumu yok, eğitim gerektirmez"
+      title: "QR Kodla Başlayın",
+      description: "Kasanıza, masalarınıza QR kod koyun, müşteriler okutup puan toplasın. Ekstra donanım ya da eğitim gerektirmez"
     },
     {
       icon: Trophy,
-      title: "Anlık Analiz",
-      description: "Müşteri davranışları, kampanya kullanımları ve ciro etkisini canlı panolardan takip edin"
+      title: "Sonuçları Takip Edin",
+      description: "Kaç müşteri kaydoldu? Hangi kampanya işe yarıyor? Ciroya etkisi ne? Hepsini canlı görebilirsiniz"
     },
     {
       icon: Gift,
-      title: "Otomatik Etkileşim",
-      description: "AI destekli öneriler müşterileri geri getirir. Oyunlaştırma müşteri değerini artırır"
+      title: "Müşterileri Geri Getirin",
+      description: "Uzun süredir gelmeyen müşterilere özel kampanyalar gönderin. Puan sistemi müşterileri tekrar getirir"
     }
   ];
 
@@ -45,15 +45,15 @@ export const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            Sadakat programınızı
+            24 saat içinde
             <span className="block mt-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                24 saatte başlatın
+                başlayın
               </span>
             </span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Minimum kurulum, sıfır teknik yük ile hemen başlayın
+            Kurulum kolay, teknik bilgi gerektirmez
           </p>
         </div>
 

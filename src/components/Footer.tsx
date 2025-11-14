@@ -9,7 +9,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-muted-foreground max-w-md">
-            Restoranlar için kurumsal sadakat altyapısı. Komisyonları azaltın, sadakati artırın, müşteri ilişkilerinize sahip çıkın.
+            Kendi müşteri sadakat programınızı kurun. Paket servis komisyonlarını kaldırın, müşterilerinizi mekana çekin.
           </p>
 
           <div className="flex gap-4">

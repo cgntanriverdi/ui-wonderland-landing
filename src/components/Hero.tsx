@@ -41,19 +41,19 @@ export const Hero = () => {
           >
             <div className="inline-block">
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Restoranlar için Sadakat Altyapısı
+                Restoranınız İçin Sadakat Programı
               </span>
             </div>
 
             <h1 className="hero-text text-balance">
-              Sadakat Programınız
+              Kendi Müşteri Programınızı Kurun,
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                Artık Size Ait
+                Komisyonları Kaldırın
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              Yüzlerce restoran Afiyet ile paket servis komisyonlarını sıfırlıyor, mekanda satışları artırıyor ve AI destekli sadakat programlarıyla kalıcı müşteri ilişkileri kuruyor.
+              Paket servis uygulamalarına %30-40 komisyon ödemek yerine, kendi sadakat programınızı kurun. Müşterileriniz mekana gelsin, siz daha çok kazanın.
             </p>
           </motion.div>
 
