@@ -35,9 +35,9 @@ export const CTA = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Ready to transform
+              Müşteri sadakatinizi
               <span className="block mt-2">
-                your customer retention?
+                dönüştürmeye hazır mısınız?
               </span>
             </motion.h2>
 
@@ -47,7 +47,7 @@ export const CTA = () => {
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Join restaurants increasing revenue by 35% with our loyalty platform. Start your 30-day free trial.
+              Sadakat platformumuzla ciroları %35 artıran restoranlara katılın. 30 günlük ücretsiz deneme ile başlayın.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,7 +59,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Start Free Trial
+                  Ücretsiz Deneyin
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
@@ -71,7 +71,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Schedule a Demo
+                  Demo Talep Edin
                 </Button>
               </motion.div>
             </div>

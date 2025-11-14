@@ -9,7 +9,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-muted-foreground max-w-md">
-            Enterprise loyalty infrastructure for restaurants. Reduce commissions, increase retention, and own your customer relationships.
+            Restoranlar için kurumsal sadakat altyapısı. Komisyonları azaltın, sadakati artırın, müşteri ilişkilerinize sahip çıkın.
           </p>
 
           <div className="flex gap-4">
