@@ -41,19 +41,19 @@ export const Hero = () => {
           >
             <div className="inline-block">
               <span className="text-sm font-semibold tracking-wider uppercase text-accent">
-                Dışarıda Yemek Artık Daha Uygun
+                Loyalty Infrastructure for Restaurants
               </span>
             </div>
 
             <h1 className="hero-text text-balance">
-              Fırsat Yakala, Puan Kazan
+              Own Your Customer
               <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                Seviye Atla
+                Loyalty Program
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl text-balance">
-              AI asistanın Memo sana en iyi restoranları öneriyor. QR kodla kupon kullan, her harcamanda XP kazan, level atla. Restoranlar için %0 komisyon.
+              Join hundreds of restaurants using Afiyet to eliminate delivery commissions, increase dine-in traffic, and build lasting customer relationships through AI-powered loyalty programs.
             </p>
           </motion.div>
 

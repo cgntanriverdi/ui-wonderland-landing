@@ -9,7 +9,7 @@ export const Footer = () => {
           </div>
 
           <p className="text-muted-foreground max-w-md">
-            AI destekli restoran keşif platformu. Kullanıcılar için ücretsiz fırsatlar, restoranlar için komisyonsuz büyüme.
+            Enterprise loyalty infrastructure for restaurants. Reduce commissions, increase retention, and own your customer relationships.
           </p>
 
           <div className="flex gap-4">

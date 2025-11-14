@@ -8,23 +8,23 @@ export const Solution = () => {
   const steps = [
     {
       icon: Map,
-      title: "Memo'ya Sor",
-      description: '"Canım burger çekti" de, Memo konumuna yakın en iyi fırsatları göstersin'
+      title: "Design Your Program",
+      description: "Customize loyalty tiers, rewards, and offers in minutes. No technical expertise required"
     },
     {
       icon: QrCode,
-      title: "Kuponu Aktif Et",
-      description: "Beğendiğin fırsata tıkla, QR kod oluştur. 5 dakika geçerli, git ve kullan"
+      title: "Seamless Integration",
+      description: "QR-based system works with any POS. No hardware installation, no training needed"
     },
     {
       icon: Trophy,
-      title: "Kasada QR Göster",
-      description: "Restoran QR'ı tarar, indirim anında uygulanır. Ödeme yap, çık"
+      title: "Real-Time Analytics",
+      description: "Track customer behavior, redemption rates, and revenue impact through live dashboards"
     },
     {
       icon: Gift,
-      title: "XP Kazan, Level Atla",
-      description: "Harcadığın tutar kadar XP kazanırsın. Seviye atla, yeni ödüller aç, Memo'yu süsle"
+      title: "Automated Engagement",
+      description: "AI-powered recommendations drive customers back to your location. Built-in gamification increases lifetime value"
     }
   ];
 
@@ -45,15 +45,15 @@ export const Solution = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            Nasıl Çalışır?
+            Launch your loyalty program
             <span className="block mt-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-                4 Basit Adım
+                in 24 hours
               </span>
             </span>
           </h2>
           <p className="text-2xl text-muted-foreground max-w-3xl mx-auto font-medium">
-            Sor, seç, göster, kazan. Bu kadar basit
+            Get up and running with minimal setup, no technical overhead
           </p>
         </div>
 
