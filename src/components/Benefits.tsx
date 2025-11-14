@@ -6,27 +6,27 @@ export const Benefits = () => {
 
   const benefits = [
     {
-      icon: Sparkles,
-      title: "AI Asistan Memo",
-      description: '"Bugün ne yesem?" kararsızlığına son. Memo, konumuna yakın en iyi fırsatları sana özel öneriyor',
+      icon: Zap,
+      title: "Reduce Commission Costs",
+      description: "Eliminate 30-40% delivery platform fees. Fixed monthly subscription with unlimited customer transactions",
       color: "from-yellow-500 to-orange-500"
     },
     {
-      icon: Zap,
-      title: "QR Kod ile Anında İndirim",
-      description: "Kuponu seç, kasaya gel, QR göster. Anında indirim al, ekstra XP kazan",
+      icon: Sparkles,
+      title: "Increase Dine-In Revenue",
+      description: "Drive customers to your physical location with AI-powered offers. Average 35% increase in repeat visits",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Battle Pass Sistemi",
-      description: "Her harcamanda XP kazan, level atla. Özel kostümler, yeni karakterler ve daha fazla ödül seni bekliyor",
+      title: "Gamified Loyalty System",
+      description: "Built-in XP and level system keeps customers engaged. Battle pass mechanics proven to boost retention by 2.5x",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Restoranlar İçin %0 Komisyon",
-      description: "Yüksek komisyonlara son. Sabit aylık ücret, sınırsız müşteri. Senin platformun, senin kuralların",
+      title: "Own Your Customer Data",
+      description: "Full control over customer insights and behavior analytics. No third-party dependencies or data sharing",
       color: "from-green-500 to-emerald-500"
     }
   ];
@@ -48,12 +48,13 @@ export const Benefits = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-              Oyun Gibi Deneyim
-            </span> Gerçek Tasarruf
+            A fully integrated suite of
+            <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
+              loyalty and engagement tools
+            </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Kullanıcılar için ücretsiz, restoranlar için komisyonsuz
+            Reduce costs, grow revenue, and build customer relationships on an AI-powered platform
           </p>
         </div>
 

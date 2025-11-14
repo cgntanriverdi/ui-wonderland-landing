@@ -35,9 +35,9 @@ export const CTA = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
-              Dışarıda Yemek
+              Ready to transform
               <span className="block mt-2">
-                Artık Oyun Gibi
+                your customer retention?
               </span>
             </motion.h2>
 
@@ -47,7 +47,7 @@ export const CTA = () => {
               animate={{ opacity: 0.9, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              Kullanıcılar için tamamen ücretsiz. Restoranlar için %0 komisyon, sabit aylık ücret. Hemen başla.
+              Join restaurants increasing revenue by 35% with our loyalty platform. Start your 30-day free trial.
             </motion.p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -59,7 +59,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Uygulamayı İndir
+                  Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </motion.div>
@@ -71,7 +71,7 @@ export const CTA = () => {
                   size="lg"
                   className="text-lg px-8 py-6 bg-white text-[hsl(14_88%_55%)] hover:bg-white/90 transition-all w-full sm:w-auto shadow-2xl"
                 >
-                  Restoranım İçin
+                  Schedule a Demo
                 </Button>
               </motion.div>
             </div>
