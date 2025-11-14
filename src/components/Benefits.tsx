@@ -7,26 +7,26 @@ export const Benefits = () => {
   const benefits = [
     {
       icon: Zap,
-      title: "Komisyon Maliyetini Sıfırlayın",
-      description: "%30-40 paket servis ücretlerine son verin. Sabit aylık ücret, sınırsız müşteri işlemi",
+      title: "Komisyon Ödemekten Kurtulun",
+      description: "Paket servis uygulamalarına %30-40 ödemek yerine sabit aylık ücret ödeyin. İster 100, ister 10,000 müşteri olsun fiyat aynı",
       color: "from-yellow-500 to-orange-500"
     },
     {
       icon: Sparkles,
-      title: "Mekanda Satışları Artırın",
-      description: "AI destekli kampanyalarla müşterileri restoranınıza çekin. Ortalama %35 daha fazla tekrar ziyaret",
+      title: "Müşteriler Mekana Gelsin",
+      description: "Kampanyalar ve özel indirimlerle müşterileri restoranınıza çağırın. Restoranlar ortalama %35 daha fazla ziyaret görüyor",
       color: "from-purple-500 to-pink-500"
     },
     {
       icon: Check,
-      title: "Oyunlaştırılmış Sadakat Sistemi",
-      description: "XP ve seviye sistemi müşterileri bağlı tutar. Battle pass mekaniği ile 2.5 kat daha fazla sadakat",
+      title: "Müşteriler Tekrar Gelsin",
+      description: "Puan topla, seviye atla, ödül kazan sistemi ile müşteriler sürekli geri gelir. Müşteri bağlılığı 2.5 kat artıyor",
       color: "from-blue-500 to-cyan-500"
     },
     {
       icon: Shield,
-      title: "Veri Sahipliği Sizde",
-      description: "Müşteri davranışları ve analizleri tamamen sizin kontrolünüzde. Üçüncü taraf bağımlılığı yok",
+      title: "Müşteri Verileriniz Size Ait",
+      description: "Müşterilerinizin telefon numaraları, siparişleri, tercihleri sizde kalıyor. Başka platformlara bağımlı değilsiniz",
       color: "from-green-500 to-emerald-500"
     }
   ];
@@ -48,13 +48,13 @@ export const Benefits = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20">
           <h2 className="section-title mb-6">
-            Eksiksiz bir
+            Neden
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]">
-              sadakat ve etkileşim paketi
+              Afiyet?
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Maliyetleri düşürün, ciroyu artırın ve AI destekli platformla müşteri ilişkilerini güçlendirin
+            Daha az masraf, daha fazla müşteri, daha çok kazanç
           </p>
         </div>
 
