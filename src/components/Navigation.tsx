@@ -42,8 +42,7 @@ export const Navigation = () => {
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(14_88%_55%)] to-[hsl(25_95%_53%)]" />
-          <span className="text-2xl font-bold">Afiyet</span>
+          <img src="/Logo.PNG" alt="Afiyet" className="h-8 w-auto" />
         </motion.div>
 
         <div className="hidden md:flex items-center gap-8">
