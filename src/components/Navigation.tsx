@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { easing } from "@/lib/animations";
-import logo from "@/assets/Logo.PNG";
+import logo from "@/assets/logo.png";
 
 export const Navigation = () => {
   const [scrolled, setScrolled] = useState(false);
