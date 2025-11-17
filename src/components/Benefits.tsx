@@ -1,22 +1,29 @@
 import { Card } from "@/components/ui/card";
 import { Check, Shield, Sparkles, Zap } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { benefitsContainer, benefitCard, sectionTransition } from "@/lib/animations";
+import { getMobileOptimizedVariant, benefitsContainer, benefitCard, sectionTransition } from "@/lib/animations";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const Benefits = () => {
   const ref = useRef<HTMLElement>(null);
   const { isVisible } = useScrollAnimation(0.2);
+  const { shouldReduceAnimations } = useIsMobile();
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Scroll-based parallax for background elements
-  const orbY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
-  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+  // Disable parallax on mobile
+  const orbY = useTransform(scrollYProgress, [0, 1], shouldReduceAnimations ? [0, 0] : [-50, 50]);
+  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], shouldReduceAnimations ? [1, 1, 1] : [0.8, 1, 0.8]);
+
+  // Get mobile-optimized variants
+  const optimizedBenefitsContainer = getMobileOptimizedVariant(benefitsContainer, shouldReduceAnimations);
+  const optimizedBenefitCard = getMobileOptimizedVariant(benefitCard, shouldReduceAnimations);
+  const optimizedSectionTransition = getMobileOptimizedVariant(sectionTransition, shouldReduceAnimations);
 
   const benefits = [
     {
@@ -55,16 +62,18 @@ export const Benefits = () => {
         }}
       />
 
-      {/* Parallax gradient orb with scale animation */}
-      <motion.div
-        className="absolute top-20 right-20 w-[500px] h-[500px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, hsl(14 88% 55% / 0.15), transparent 70%)',
-          filter: 'blur(60px)',
-          y: orbY,
-          scale: orbScale,
-        }}
-      />
+      {/* Parallax gradient orb with scale animation - Simplified for mobile */}
+      {!shouldReduceAnimations && (
+        <motion.div
+          className="absolute top-20 right-20 w-[500px] h-[500px] rounded-full will-change-transform"
+          style={{
+            background: 'radial-gradient(circle, hsl(14 88% 55% / 0.15), transparent 70%)',
+            filter: 'blur(60px)',
+            y: orbY,
+            scale: orbScale,
+          }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header with reveal animation */}
@@ -73,7 +82,7 @@ export const Benefits = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={sectionTransition}
+          variants={optimizedSectionTransition}
         >
           <h2 className="section-title mb-6">
             Restoranınızın Kontrolü
@@ -92,19 +101,19 @@ export const Benefits = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          variants={benefitsContainer}
+          variants={optimizedBenefitsContainer}
         >
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              variants={benefitCard}
-              whileHover={{
+              variants={optimizedBenefitCard}
+              whileHover={shouldReduceAnimations ? undefined : {
                 scale: 1.05,
                 rotateY: 5,
                 rotateX: 5,
                 transition: { duration: 0.3 }
               }}
-              style={{
+              style={shouldReduceAnimations ? undefined : {
                 perspective: 1000,
                 transformStyle: "preserve-3d",
               }}
@@ -118,11 +127,11 @@ export const Benefits = () => {
                   }}
                 />
 
-                {/* Icon with rotation on hover */}
+                {/* Icon with rotation on hover - Simplified for mobile */}
                 <motion.div
                   className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${benefit.color} mx-auto mb-6 flex items-center justify-center relative z-10`}
-                  whileHover={{ scale: 1.2, rotate: 360 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                  whileHover={shouldReduceAnimations ? { scale: 1.05 } : { scale: 1.2, rotate: 360 }}
+                  transition={shouldReduceAnimations ? { duration: 0.2 } : { type: "spring", stiffness: 200, damping: 15 }}
                 >
                   <benefit.icon className="w-8 h-8 text-white" />
                 </motion.div>

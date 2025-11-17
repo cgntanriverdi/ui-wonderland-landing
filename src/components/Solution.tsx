@@ -4,20 +4,29 @@ import restaurantList from "@/assets/IMG_5355.jpg";
 import restaurantPanel from "@/assets/IMG_5354.jpg";
 import couponVerification from "@/assets/IMG_5356.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { solutionImageReveal, solutionImageRevealRight, solutionTextReveal, sectionTransition } from "@/lib/animations";
+import { getMobileOptimizedVariant, solutionImageReveal, solutionImageRevealRight, solutionTextReveal, sectionTransition } from "@/lib/animations";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 export const Solution = () => {
   const ref = useRef<HTMLElement>(null);
+  const { shouldReduceAnimations } = useIsMobile();
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const orbY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.2, 0.8]);
+  // Disable parallax on mobile
+  const backgroundY = useTransform(scrollYProgress, [0, 1], shouldReduceAnimations ? [0, 0] : [0, -50]);
+  const orbY = useTransform(scrollYProgress, [0, 1], shouldReduceAnimations ? [0, 0] : [0, 100]);
+  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], shouldReduceAnimations ? [1, 1, 1] : [0.8, 1.2, 0.8]);
+
+  // Get mobile-optimized variants
+  const optimizedSolutionImageReveal = getMobileOptimizedVariant(solutionImageReveal, shouldReduceAnimations);
+  const optimizedSolutionImageRevealRight = getMobileOptimizedVariant(solutionImageRevealRight, shouldReduceAnimations);
+  const optimizedSolutionTextReveal = getMobileOptimizedVariant(solutionTextReveal, shouldReduceAnimations);
+  const optimizedSectionTransition = getMobileOptimizedVariant(sectionTransition, shouldReduceAnimations);
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden" id="how-it-works">
@@ -27,16 +36,18 @@ export const Solution = () => {
         style={{ y: backgroundY }}
       />
 
-      {/* Parallax gradient orb */}
-      <motion.div
-        className="absolute bottom-20 left-20 w-[600px] h-[600px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, hsl(25 95% 53% / 0.15), transparent 70%)',
-          filter: 'blur(80px)',
-          y: orbY,
-          scale: orbScale,
-        }}
-      />
+      {/* Parallax gradient orb - Disabled for mobile */}
+      {!shouldReduceAnimations && (
+        <motion.div
+          className="absolute bottom-20 left-20 w-[600px] h-[600px] rounded-full will-change-transform"
+          style={{
+            background: 'radial-gradient(circle, hsl(25 95% 53% / 0.15), transparent 70%)',
+            filter: 'blur(80px)',
+            y: orbY,
+            scale: orbScale,
+          }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section header with reveal */}
@@ -45,7 +56,7 @@ export const Solution = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={sectionTransition}
+          variants={optimizedSectionTransition}
         >
           <h2 className="section-title mb-6">
             Nasıl Çalışır?
@@ -62,20 +73,22 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={solutionImageReveal}
+            variants={optimizedSolutionImageReveal}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
+            {!shouldReduceAnimations && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+            )}
             <motion.img
               src={qrCodeScreen}
               alt="Afiyet Restoran Listesi - Müşteri Uygulaması"
@@ -89,11 +102,11 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={sectionTransition}
+            variants={optimizedSectionTransition}
           >
             <motion.div
               className="flex items-center gap-3 mb-4"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={0}
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center">
@@ -103,21 +116,21 @@ export const Solution = () => {
             </motion.div>
             <motion.h3
               className="text-4xl font-bold"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={1}
             >
               Yakındaki Restoranları Keşfedin
             </motion.h3>
             <motion.p
               className="text-xl text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={2}
             >
               Müşteriler telefon numarası ile ücretsiz kayıt olur. Uygulamadan yakınlarındaki restoranları keşfedebilir, kampanyaları görüntüleyebilir ve favori restoranlarını takip edebilir. Konum bazlı filtreleme ile en yakın fırsatları bulun.
             </motion.p>
             <motion.ul
               className="space-y-3 text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={3}
             >
               <li className="flex items-start gap-3">
@@ -147,11 +160,11 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={sectionTransition}
+            variants={optimizedSectionTransition}
           >
             <motion.div
               className="flex items-center gap-3 mb-4"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={0}
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center">
@@ -161,21 +174,21 @@ export const Solution = () => {
             </motion.div>
             <motion.h3
               className="text-4xl font-bold"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={1}
             >
               Fırsat Kullanımı
             </motion.h3>
             <motion.p
               className="text-xl text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={2}
             >
               Müşteriler seçtikleri kampanyaya göre uygulamadan QR kod oluşturur. Restoranınızda QR kodu okutarak anında doğrulayın. 5 dakikalık zamanlayıcı ile güvenli ve hızlı işlem. Her kullanımda otomatik puan kazanımı.
             </motion.p>
             <motion.ul
               className="space-y-3 text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={3}
             >
               <li className="flex items-start gap-3">
@@ -201,21 +214,23 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={solutionImageRevealRight}
+            variants={optimizedSolutionImageRevealRight}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-            />
+            {!shouldReduceAnimations && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 0.5,
+                }}
+              />
+            )}
             <motion.img
               src={restaurantList}
               alt="Afiyet QR Kod - Fırsat Kullanımı"
@@ -233,21 +248,23 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={solutionImageReveal}
+            variants={optimizedSolutionImageReveal}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-            />
+            {!shouldReduceAnimations && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1,
+                }}
+              />
+            )}
             <motion.img
               src={couponVerification}
               alt="Afiyet Kupon Doğrulama - Restoran Paneli"
@@ -261,11 +278,11 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={sectionTransition}
+            variants={optimizedSectionTransition}
           >
             <motion.div
               className="flex items-center gap-3 mb-4"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={0}
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center">
@@ -275,21 +292,21 @@ export const Solution = () => {
             </motion.div>
             <motion.h3
               className="text-4xl font-bold"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={1}
             >
               Kupon Doğrulama
             </motion.h3>
             <motion.p
               className="text-xl text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={2}
             >
               Restoran panelinizden "Tara" özelliğini kullanarak müşterinin QR kodunu okutun. Anında doğrulama yapılır ve kupon güvenilir bir şekilde kullanılmış olur. Ekstra cihaz gerektirmez.
             </motion.p>
             <motion.ul
               className="space-y-3 text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={3}
             >
               <li className="flex items-start gap-3">
@@ -315,21 +332,23 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={solutionImageReveal}
+            variants={optimizedSolutionImageReveal}
           >
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
-              animate={{
-                scale: [1, 1.05, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1.5,
-              }}
-            />
+            {!shouldReduceAnimations && (
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] blur-3xl opacity-20 rounded-3xl"
+                animate={{
+                  scale: [1, 1.05, 1],
+                  opacity: [0.2, 0.3, 0.2],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1.5,
+                }}
+              />
+            )}
             <motion.img
               src={restaurantPanel}
               alt="Afiyet Restoran Paneli - Kampanya Yönetimi"
@@ -343,11 +362,11 @@ export const Solution = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={sectionTransition}
+            variants={optimizedSectionTransition}
           >
             <motion.div
               className="flex items-center gap-3 mb-4"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={0}
             >
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] flex items-center justify-center">
@@ -357,21 +376,21 @@ export const Solution = () => {
             </motion.div>
             <motion.h3
               className="text-4xl font-bold"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={1}
             >
               Kampanya Yönetimi Paneli
             </motion.h3>
             <motion.p
               className="text-xl text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={2}
             >
               Kart tabanlı basit arayüzle kampanyalarınızı kolayca oluşturun ve yönetin. Ürün görselleri, fiyatlar ve geçerlilik kurallarını tek bir ekrandan belirleyin. Teknik bilgi gerektirmez.
             </motion.p>
             <motion.ul
               className="space-y-3 text-muted-foreground"
-              variants={solutionTextReveal}
+              variants={optimizedSolutionTextReveal}
               custom={3}
             >
               <li className="flex items-start gap-3">

@@ -9,6 +9,45 @@ export const easing = {
   appleSpring: [0.25, 0.1, 0.25, 1],
 };
 
+// Mobile-optimized animation utilities
+export const getMobileOptimizedVariant = (
+  desktopVariant: Variants,
+  isMobile: boolean
+): Variants => {
+  if (!isMobile) return desktopVariant;
+
+  // Reduce animation complexity for mobile
+  const optimized: Variants = {};
+
+  Object.keys(desktopVariant).forEach((key) => {
+    const variant = desktopVariant[key];
+    if (typeof variant === 'object' && variant !== null) {
+      optimized[key] = {
+        ...variant,
+        // Remove expensive transforms
+        rotateX: undefined,
+        rotateY: undefined,
+        filter: undefined,
+        clipPath: undefined,
+        // Reduce movement distance
+        x: variant.x ? (typeof variant.x === 'number' ? variant.x * 0.5 : variant.x) : variant.x,
+        y: variant.y ? (typeof variant.y === 'number' ? variant.y * 0.5 : variant.y) : variant.y,
+        // Faster transitions
+        transition: variant.transition ? {
+          ...variant.transition,
+          duration: typeof variant.transition.duration === 'number'
+            ? variant.transition.duration * 0.7
+            : variant.transition.duration,
+        } : variant.transition,
+      };
+    } else {
+      optimized[key] = variant;
+    }
+  });
+
+  return optimized;
+};
+
 // Story-driven scroll animations - Progressive reveal system
 
 // Chapter 1: Introduction (Hero) - Problem reveal
