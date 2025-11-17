@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, Zap, Target, Award } from "lucide-react";
-import gamificationImg from "@/assets/gamification.png";
+import oyunImg from "@/assets/oyun.png";
 import { motion } from "framer-motion";
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer, zoomIn } from "@/lib/animations";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
@@ -82,7 +82,7 @@ export const Gamification = () => {
             animate={isVisible ? "visible" : "hidden"}
           >
             <motion.img
-              src={gamificationImg}
+              src={oyunImg}
               alt="Gamification System"
               className="w-full h-auto rounded-3xl shadow-2xl"
               whileHover={{ scale: 1.02, rotate: -1 }}
