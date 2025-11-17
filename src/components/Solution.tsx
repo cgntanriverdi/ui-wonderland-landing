@@ -13,8 +13,8 @@ export const Solution = () => {
     },
     {
       icon: QrCode,
-      title: "QR Kodu Yapıştırın",
-      description: "Büyük markaların sadakat programları gibi: Masa üstü, kasa önü, vitrin - istediğiniz yere QR kodu koyun. Müşteriler okutup puan toplamaya başlasın. Ekstra cihaz yok."
+      title: "Müşteri QR Kodu Oluşturur",
+      description: "Müşteri uygulamadan kampanyaya göre QR kod oluşturur. Siz de kendi Afiyet uygulamanızla okutursunuz. Basit, hızlı, güvenli - ekstra cihaz yok."
     },
     {
       icon: Trophy,
