@@ -4,12 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { getMobileOptimizedVariant, benefitsContainer, benefitCard, sectionTransition } from "@/lib/animations";
 import { useScrollAnimation } from "@/hooks/use-scroll-animation";
 import { useRef } from "react";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useResize } from "@/contexts/ResizeContext";
 
 export const Benefits = () => {
   const ref = useRef<HTMLElement>(null);
   const { isVisible } = useScrollAnimation(0.2);
-  const { shouldReduceAnimations } = useIsMobile();
+  const { shouldReduceAnimations } = useResize();
 
   const { scrollYProgress } = useScroll({
     target: ref,

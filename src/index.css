@@ -249,14 +249,11 @@ All colors MUST be HSL.
   }
 
   @keyframes gradient-shift {
-    0% {
+    0%, 100% {
       background-position: 0% 50%;
     }
     50% {
       background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
     }
   }
 
@@ -354,8 +351,19 @@ All colors MUST be HSL.
   }
 
   .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
+    background-size: 400% 400%;
+    background-position: 0% 50%;
+    animation: gradient-shift 8s ease-in-out infinite;
+    will-change: background-position;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Pause all animations during resize */
+  .resize-freeze,
+  .resize-freeze * {
+    animation-play-state: paused !important;
+    transition: none !important;
   }
 
   .animate-gradient-rotate {
@@ -392,9 +400,106 @@ All colors MUST be HSL.
     }
   }
 
-  /* Performance optimizations */
+  /* Performance optimizations - GPU Acceleration */
   .gpu-accelerate {
     transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
     will-change: transform;
+  }
+
+  /* Mobile-specific optimizations */
+  @media (max-width: 768px) {
+    /* Remove blur effects on mobile for performance and clarity */
+    .glass-effect {
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      background: hsl(var(--background)) !important;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Reduce motion for better performance */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Hardware acceleration for transforms */
+    .will-change-transform {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    /* Optimize images */
+    img {
+      content-visibility: auto;
+    }
+  }
+
+  /* GPU-accelerated animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) translateZ(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateZ(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-100px) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) translateZ(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px) translateZ(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) translateZ(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) translateZ(0);
+    }
+    50% {
+      transform: translateY(-20px) translateZ(0);
+    }
+  }
+
+  /* Content visibility for off-screen optimization */
+  .auto-visibility {
+    content-visibility: auto;
+    contain-intrinsic-size: 500px;
   }
 }

@@ -134,11 +134,22 @@ export default {
         "gradient-pulse": {
           "0%, 100%": {
             opacity: "0.4",
-            transform: "scale(0.95)",
+            transform: "scale(0.95) translateZ(0)",
           },
           "50%": {
             opacity: "1",
-            transform: "scale(1.1)",
+            transform: "scale(1.1) translateZ(0)",
+          },
+        },
+        "gradient-move": {
+          "0%": {
+            backgroundPosition: "0% 50%",
+          },
+          "50%": {
+            backgroundPosition: "100% 50%",
+          },
+          "100%": {
+            backgroundPosition: "0% 50%",
           },
         },
       },

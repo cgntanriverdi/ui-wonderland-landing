@@ -1,8 +1,8 @@
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useResize } from "@/contexts/ResizeContext";
 import { useMemo } from "react";
 
 export const FloatingParticles = () => {
-  const { shouldReduceAnimations } = useIsMobile();
+  const { shouldReduceAnimations } = useResize();
 
   // Memoize particles to prevent re-renders
   const particles = useMemo(() => {

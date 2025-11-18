@@ -1,37 +1,45 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { getMobileOptimizedVariant, heroReveal, heroTextReveal } from "@/lib/animations";
-import { useRef } from "react";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useRef, useMemo } from "react";
+import { useResize } from "@/contexts/ResizeContext";
 
 export const Hero = () => {
   const ref = useRef<HTMLElement>(null);
-  const { shouldReduceAnimations } = useIsMobile();
+  const { shouldReduceAnimations } = useResize();
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
+  // Memoize transform ranges to prevent recalculation on resize
+  const transformRanges = useMemo(() => ({
+    orbOpacity: shouldReduceAnimations ? [1, 1] : [1, 0],
+    textY: shouldReduceAnimations ? [0, 0] : [0, -100],
+    textScale: shouldReduceAnimations ? [1, 1] : [1, 0.9],
+    textOpacity: shouldReduceAnimations ? [1, 1, 1] : [1, 1, 0]
+  }), [shouldReduceAnimations]);
+
   // Disable parallax on mobile for better performance
   const orbOpacity = useTransform(
     scrollYProgress,
     [0, 0.5],
-    shouldReduceAnimations ? [1, 1] : [1, 0]
+    transformRanges.orbOpacity as [number, number]
   );
   const textY = useTransform(
     scrollYProgress,
     [0, 1],
-    shouldReduceAnimations ? [0, 0] : [0, -100]
+    transformRanges.textY as [number, number]
   );
   const textScale = useTransform(
     scrollYProgress,
     [0, 0.5],
-    shouldReduceAnimations ? [1, 1] : [1, 0.9]
+    transformRanges.textScale as [number, number]
   );
   const textOpacity = useTransform(
     scrollYProgress,
     [0, 0.3, 0.5],
-    shouldReduceAnimations ? [1, 1, 1] : [1, 1, 0]
+    transformRanges.textOpacity as [number, number, number]
   );
 
   // Get mobile-optimized animation variants
@@ -42,11 +50,13 @@ export const Hero = () => {
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated gradient background with scroll parallax */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50"
+        className={`absolute inset-0 bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 ${
+          shouldReduceAnimations ? '' : 'animate-gradient'
+        }`}
         style={{
-          backgroundSize: '200% 200%',
           opacity: orbOpacity,
-          ...(shouldReduceAnimations ? {} : { animation: 'gradient-shift 8s ease infinite' }),
+          transform: 'translateZ(0)',
+          backfaceVisibility: 'hidden',
         }}
       />
 

@@ -1,20 +1,33 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ctaReveal, sectionTransition } from "@/lib/animations";
-import { useRef } from "react";
+import { getMobileOptimizedVariant, ctaReveal, sectionTransition } from "@/lib/animations";
+import { useRef, useMemo } from "react";
+import { useResize } from "@/contexts/ResizeContext";
 
 export const CTA = () => {
   const ref = useRef<HTMLElement>(null);
+  const { shouldReduceAnimations } = useResize();
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  // Parallax effects for final reveal
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1.1, 0.9]);
-  const orbOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.15, 0.25, 0.2]);
+  // Memoize transform ranges
+  const transformRanges = useMemo(() => ({
+    backgroundY: shouldReduceAnimations ? [0, 0] : [0, -30],
+    orbScale: shouldReduceAnimations ? [1, 1, 1] : [0.8, 1.1, 0.9],
+    orbOpacity: shouldReduceAnimations ? [0, 0, 0] : [0.15, 0.25, 0.2]
+  }), [shouldReduceAnimations]);
+
+  // Disable parallax on mobile
+  const backgroundY = useTransform(scrollYProgress, [0, 1], transformRanges.backgroundY as [number, number]);
+  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], transformRanges.orbScale as [number, number, number]);
+  const orbOpacity = useTransform(scrollYProgress, [0, 0.5, 1], transformRanges.orbOpacity as [number, number, number]);
+
+  const optimizedCtaReveal = getMobileOptimizedVariant(ctaReveal, shouldReduceAnimations);
+  const optimizedSectionTransition = getMobileOptimizedVariant(sectionTransition, shouldReduceAnimations);
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden" id="download">
@@ -24,16 +37,18 @@ export const CTA = () => {
         style={{ y: backgroundY }}
       />
 
-      {/* Animated orb with parallax */}
-      <motion.div
-        className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full"
-        style={{
-          background: 'radial-gradient(circle, hsl(14 88% 55% / 0.2), transparent 70%)',
-          filter: 'blur(60px)',
-          scale: orbScale,
-          opacity: orbOpacity,
-        }}
-      />
+      {/* Animated orb with parallax - Disabled on mobile */}
+      {!shouldReduceAnimations && (
+        <motion.div
+          className="absolute top-10 left-10 w-[400px] h-[400px] rounded-full will-change-transform"
+          style={{
+            background: 'radial-gradient(circle, hsl(14 88% 55% / 0.2), transparent 70%)',
+            filter: 'blur(60px)',
+            scale: orbScale,
+            opacity: orbOpacity,
+          }}
+        />
+      )}
 
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
@@ -41,24 +56,16 @@ export const CTA = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={ctaReveal}
-          whileHover={{ scale: 1.02, y: -10 }}
-          transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          variants={optimizedCtaReveal}
+          whileHover={shouldReduceAnimations ? undefined : { scale: 1.02, y: -10 }}
+          transition={shouldReduceAnimations ? undefined : { type: "spring", stiffness: 150, damping: 20 }}
         >
-          {/* Animated gradient background */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)]"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              backgroundSize: "200% 200%",
-            }}
+          {/* Animated gradient background - Static on mobile */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-r from-[hsl(14_88%_55%)] via-[hsl(25_95%_53%)] to-[hsl(35_90%_60%)] ${
+              shouldReduceAnimations ? '' : 'animate-gradient'
+            }`}
+            data-gradient-animation={shouldReduceAnimations ? undefined : "true"}
           />
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iYSIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj48cGF0aCBkPSJNLS4wMyAzMGgxMHYxMGgtMTB6TTIwIDIwaDEwdjEwaC0xMHoiIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2EpIi8+PC9zdmc+')] opacity-50" />
 
@@ -68,13 +75,13 @@ export const CTA = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={sectionTransition}
+              variants={optimizedSectionTransition}
               custom={0}
             >
               Komisyonlara Veda Edin.
               <motion.span
                 className="block mt-2"
-                variants={sectionTransition}
+                variants={optimizedSectionTransition}
                 custom={1}
               >
                 Müşterilerinize Merhaba.
@@ -86,7 +93,7 @@ export const CTA = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={sectionTransition}
+              variants={optimizedSectionTransition}
               custom={2}
             >
               Paket servis platformlarına ödediğiniz komisyonları hesaplayın. Afiyet ile sabit aylık abonelik modeline geçin ve kârlılığınızı artırın.
@@ -97,11 +104,11 @@ export const CTA = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              variants={sectionTransition}
+              variants={optimizedSectionTransition}
               custom={3}
             >
               <motion.div
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={shouldReduceAnimations ? undefined : { scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button
@@ -113,7 +120,7 @@ export const CTA = () => {
                 </Button>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.1, y: -5 }}
+                whileHover={shouldReduceAnimations ? undefined : { scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <Button

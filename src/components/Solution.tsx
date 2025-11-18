@@ -5,22 +5,29 @@ import restaurantPanel from "@/assets/IMG_5354.jpg";
 import couponVerification from "@/assets/IMG_5356.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { getMobileOptimizedVariant, solutionImageReveal, solutionImageRevealRight, solutionTextReveal, sectionTransition } from "@/lib/animations";
-import { useRef } from "react";
-import { useIsMobile } from "@/hooks/useIsMobile";
+import { useRef, useMemo } from "react";
+import { useResize } from "@/contexts/ResizeContext";
 
 export const Solution = () => {
   const ref = useRef<HTMLElement>(null);
-  const { shouldReduceAnimations } = useIsMobile();
+  const { shouldReduceAnimations } = useResize();
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
+  // Memoize transform ranges
+  const transformRanges = useMemo(() => ({
+    backgroundY: shouldReduceAnimations ? [0, 0] : [0, -50],
+    orbY: shouldReduceAnimations ? [0, 0] : [0, 100],
+    orbScale: shouldReduceAnimations ? [1, 1, 1] : [0.8, 1.2, 0.8]
+  }), [shouldReduceAnimations]);
+
   // Disable parallax on mobile
-  const backgroundY = useTransform(scrollYProgress, [0, 1], shouldReduceAnimations ? [0, 0] : [0, -50]);
-  const orbY = useTransform(scrollYProgress, [0, 1], shouldReduceAnimations ? [0, 0] : [0, 100]);
-  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], shouldReduceAnimations ? [1, 1, 1] : [0.8, 1.2, 0.8]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], transformRanges.backgroundY as [number, number]);
+  const orbY = useTransform(scrollYProgress, [0, 1], transformRanges.orbY as [number, number]);
+  const orbScale = useTransform(scrollYProgress, [0, 0.5, 1], transformRanges.orbScale as [number, number, number]);
 
   // Get mobile-optimized variants
   const optimizedSolutionImageReveal = getMobileOptimizedVariant(solutionImageReveal, shouldReduceAnimations);
@@ -93,8 +100,10 @@ export const Solution = () => {
               src={qrCodeScreen}
               alt="Afiyet Restoran Listesi - Müşteri Uygulaması"
               className="relative w-full h-auto rounded-3xl shadow-2xl will-change-transform"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
+              whileHover={shouldReduceAnimations ? undefined : { scale: 1.02 }}
+              transition={shouldReduceAnimations ? undefined : { duration: 0.4 }}
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.div
@@ -235,8 +244,10 @@ export const Solution = () => {
               src={restaurantList}
               alt="Afiyet QR Kod - Fırsat Kullanımı"
               className="relative w-full h-auto rounded-3xl shadow-2xl will-change-transform"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
+              whileHover={shouldReduceAnimations ? undefined : { scale: 1.02 }}
+              transition={shouldReduceAnimations ? undefined : { duration: 0.4 }}
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>
@@ -269,8 +280,10 @@ export const Solution = () => {
               src={couponVerification}
               alt="Afiyet Kupon Doğrulama - Restoran Paneli"
               className="relative w-full h-auto rounded-3xl shadow-2xl will-change-transform"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
+              whileHover={shouldReduceAnimations ? undefined : { scale: 1.02 }}
+              transition={shouldReduceAnimations ? undefined : { duration: 0.4 }}
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.div
@@ -353,8 +366,10 @@ export const Solution = () => {
               src={restaurantPanel}
               alt="Afiyet Restoran Paneli - Kampanya Yönetimi"
               className="relative w-full h-auto rounded-3xl shadow-2xl will-change-transform"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.4 }}
+              whileHover={shouldReduceAnimations ? undefined : { scale: 1.02 }}
+              transition={shouldReduceAnimations ? undefined : { duration: 0.4 }}
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
           <motion.div
