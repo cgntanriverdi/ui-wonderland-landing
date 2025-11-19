@@ -116,9 +116,17 @@ export const Hero = () => {
           {/* Hero title with delayed reveal */}
           <motion.h1
             className="hero-text text-[hsl(14_88%_55%)]"
-            initial="hidden"
-            animate="visible"
-            variants={optimizedHeroReveal}
+            initial={shouldReduceAnimations ? { opacity: 0, y: 30, scale: 0.95 } : "hidden"}
+            animate={shouldReduceAnimations ? { opacity: 1, y: 0, scale: 1 } : "visible"}
+            variants={shouldReduceAnimations ? undefined : optimizedHeroReveal}
+            transition={shouldReduceAnimations ? { duration: 0.6, ease: easing.apple } : undefined}
+            style={{
+              WebkitFontSmoothing: 'antialiased',
+              MozOsxFontSmoothing: 'grayscale',
+              textRendering: 'optimizeLegibility',
+              transform: shouldReduceAnimations ? 'translateZ(0)' : undefined,
+              backfaceVisibility: 'hidden',
+            }}
           >
             Afiyet
           </motion.h1>
@@ -126,14 +134,21 @@ export const Hero = () => {
           {/* Main headline with blur reveal effect */}
           <motion.p
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8"
-            initial="hidden"
-            animate="visible"
-            variants={optimizedHeroTextReveal}
-            transition={{ delay: shouldReduceAnimations ? 0.1 : 0.3 }}
+            initial={shouldReduceAnimations ? { opacity: 0, y: 20 } : "hidden"}
+            animate={shouldReduceAnimations ? { opacity: 1, y: 0 } : "visible"}
+            variants={shouldReduceAnimations ? undefined : optimizedHeroTextReveal}
+            transition={{
+              delay: shouldReduceAnimations ? 0.1 : 0.3,
+              duration: shouldReduceAnimations ? 0.5 : 1,
+              ease: easing.apple
+            }}
             style={{
               WebkitFontSmoothing: 'antialiased',
               MozOsxFontSmoothing: 'grayscale',
               textRendering: 'optimizeLegibility',
+              transform: shouldReduceAnimations ? 'translateZ(0)' : undefined,
+              backfaceVisibility: 'hidden',
+              perspective: 1000,
             }}
           >
             Müşteriler Artık Sizin.
@@ -142,14 +157,21 @@ export const Hero = () => {
           {/* Description with staggered reveal */}
           <motion.p
             className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-balance"
-            initial="hidden"
-            animate="visible"
-            variants={optimizedHeroTextReveal}
-            transition={{ delay: shouldReduceAnimations ? 0.2 : 0.6 }}
+            initial={shouldReduceAnimations ? { opacity: 0, y: 20 } : "hidden"}
+            animate={shouldReduceAnimations ? { opacity: 1, y: 0 } : "visible"}
+            variants={shouldReduceAnimations ? undefined : optimizedHeroTextReveal}
+            transition={{
+              delay: shouldReduceAnimations ? 0.2 : 0.6,
+              duration: shouldReduceAnimations ? 0.5 : 1,
+              ease: easing.apple
+            }}
             style={{
               WebkitFontSmoothing: 'antialiased',
               MozOsxFontSmoothing: 'grayscale',
               textRendering: 'optimizeLegibility',
+              transform: shouldReduceAnimations ? 'translateZ(0)' : undefined,
+              backfaceVisibility: 'hidden',
+              perspective: 1000,
             }}
           >
             Online sipariş platformlarına ödediğiniz yüksek komisyonları sonlandırın. QR kod ve kampanya sistemiyle müşterilerinizi doğrudan restoranınıza yönlendirin.
